@@ -147,6 +147,6 @@ Verification after the metadata edits, using `.venv` (Python 3.11):
 
 Those reruns did not change `derived/`, `tables/`, or `figures/`.
 
-Latest workflow before this metadata commit: `Verify paper artifacts` on `90cf1d6` succeeded (run `35962385782`).
+Latest workflow: `Verify paper artifacts` on `ab1507d` (`Finalize public release metadata`) succeeded (run `35963186395`). The prior run on `90cf1d6` had also succeeded (run `35962385782`).
 
 License/patent scope remains a human-owner decision and was not changed.
