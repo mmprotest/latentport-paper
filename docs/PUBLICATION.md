@@ -11,7 +11,12 @@ Completed 2026-09-24 from the live preprint and the included submission PDF.
 | arXiv URL | https://arxiv.org/abs/2609.25053 |
 | Hugging Face Papers | https://huggingface.co/papers/2609.25053 |
 | Repository | https://github.com/mmprotest/latentport-paper |
-| Subject class on the included submission PDF | `cs.AI` |
+| Primary arXiv category | `cs.CL` |
+| Secondary arXiv category | `cs.AI` |
+
+The live arXiv record is the citation source: primary category `cs.CL`,
+secondary subject `cs.AI`. The included submission PDF may still show
+`cs.AI` on its historical stamp. That stamp is not the public category.
 
 The PDF title metadata is the main title only. Its subject line is
 `A 4B→9B Hybrid-State Handoff Without Target Prefix Replay`. The citation

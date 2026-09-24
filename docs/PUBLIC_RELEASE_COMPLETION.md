@@ -115,8 +115,38 @@ Before these documentation edits, the same verifier already passed on the workin
 
 ## Remaining blockers
 
-- **Release commit.** The sealed CRLF restoration and `.gitattributes` are staged. The documentation and regenerated public files are not. GitHub Actions on the current commit still sees LF for those fifteen files. Commit both groups together. Do not edit the manifests to match LF.
+- **Release commit.** Resolved on `main` by commit `90cf1d6` (`Changes`). The `Verify paper artifacts` workflow for that push completed successfully. Do not edit the manifests to match a different line ending.
 - **License scope.** `LICENSE` remains Apache-2.0. `LICENSE_NOTICE.md` still says the intended scope, given patent-pending work, needs an owner decision. This pass did not choose a license or interpret patent rights.
 - **From-scratch rerun.** Model checkpoints, the original package namespace, and `correction.safetensors` are not in this checkout. Large `*.pt`, `*.npy`, and `*.safetensors` files stay gitignored.
 - **Not in the repository, and not invented.** `INDEPENDENT_AUDIT.json`, LaTeX sources, and the manuscript feasibility audit.
-- **Local PDF.** `LatentPort.pdf` is the included submission copy (`arXiv:submit/8044432`). Cite https://arxiv.org/abs/2609.25053. The BibTeX `cs.AI` class is the category printed on that submission PDF.
+- **Local PDF.** `LatentPort.pdf` is the included submission copy (`arXiv:submit/8044432`). Cite https://arxiv.org/abs/2609.25053. The submission stamp may show `cs.AI`. The live record's primary category is `cs.CL`.
+
+## Final metadata cleanup
+
+The live arXiv record is the citation source. Primary category is `cs.CL`. Secondary subject is `cs.AI`.
+
+- `README.md` BibTeX now uses `primaryClass = {cs.CL}`. The submission-PDF sentence that treated `cs.AI` as the citation category was replaced.
+- `CITATION.cff` lists `cs.CL` then `cs.AI` in `keywords`. Both arXiv identifiers describe `cs.CL` as primary and `cs.AI` as secondary. Citation File Format has no separate primary-class field.
+- `docs/PUBLICATION.md` records the same categories. The included PDF was not edited.
+- Sealed evidence, manifests, hashes, and CI workflow files were not edited.
+
+GitHub repository settings, confirmed with `gh repo view` after `gh repo edit`:
+
+- Description: `Cross-model transfer of persistent recurrent inference state without prefix replay`
+- Homepage: `https://arxiv.org/abs/2609.25053`
+- Topics: `ai-research`, `inference`, `kv-cache`, `language-models`, `llm`, `machine-learning`, `qwen`, `recurrent-state`
+- Default branch: `main`
+
+Verification after the metadata edits, using `.venv` (Python 3.11):
+
+- `python analysis/extract_results.py` exited 0
+- `python analysis/verify_results.py` exited 0: `ALL CHECKS PASSED (202 checks)`; manifest matches 301, absent historical entries 2315, large files skipped 69
+- `python analysis/reproduce_figures.py` exited 0
+- `python analysis/reproduce_tables.py` exited 0
+- `python analysis/validate_public_metadata.py` exited 0: `CITATION.cff YAML and workflow structure: PASS`
+
+Those reruns did not change `derived/`, `tables/`, or `figures/`.
+
+Latest workflow before this metadata commit: `Verify paper artifacts` on `90cf1d6` succeeded (run `35962385782`).
+
+License/patent scope remains a human-owner decision and was not changed.

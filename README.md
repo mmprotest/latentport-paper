@@ -133,12 +133,12 @@ E001's stronger full-state gate also fails (excess NLL 0.2070, TQR −0.4132). E
   year = {2026},
   eprint = {2609.25053},
   archivePrefix = {arXiv},
-  primaryClass = {cs.AI},
+  primaryClass = {cs.CL},
   url = {https://arxiv.org/abs/2609.25053}
 }
 ```
 
-Machine-readable metadata is in [CITATION.cff](CITATION.cff). The `cs.AI` class is the category on the included submission PDF.
+Machine-readable metadata is in [CITATION.cff](CITATION.cff). The live arXiv record lists `cs.CL` as the primary category and `cs.AI` as a secondary subject.
 
 ## License
 

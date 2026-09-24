@@ -7,10 +7,13 @@ authors:
     family-names: "Villani"
 repository-code: "https://github.com/mmprotest/latentport-paper"
 url: "https://arxiv.org/abs/2609.25053"
+keywords:
+  - cs.CL
+  - cs.AI
 identifiers:
   - type: other
     value: "arXiv:2609.25053"
-    description: "arXiv"
+    description: "arXiv primary category cs.CL; secondary subject cs.AI"
 preferred-citation:
   type: article
   title: "LatentPort: Beyond KV Cache - Cross-Model Transfer of Recurrent Memory in Hybrid Language Models: A 4B-to-9B Hybrid-State Handoff Without Target Prefix Replay"
@@ -22,4 +25,4 @@ preferred-citation:
   identifiers:
     - type: other
       value: "arXiv:2609.25053"
-      description: "arXiv"
+      description: "arXiv primary category cs.CL; secondary subject cs.AI"
