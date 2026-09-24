@@ -1,0 +1,9 @@
+candidate,rank,identity_lambda,parameter_count,best_epoch,best_validation_behavior_kl,selected,source_artifact
+rank_2_lambda_0e00,2,0.0,413696,3,0.17111058090813458,False,e002_coupler/artifacts/attempt_001/fit/correction_selection.json
+rank_2_lambda_1e-04,2,0.0001,413696,3,0.16978916683001444,False,e002_coupler/artifacts/attempt_001/fit/correction_selection.json
+rank_2_lambda_1e-03,2,0.001,413696,3,0.17040473694214597,False,e002_coupler/artifacts/attempt_001/fit/correction_selection.json
+rank_2_lambda_1e-02,2,0.01,413696,3,0.17094465816626325,False,e002_coupler/artifacts/attempt_001/fit/correction_selection.json
+rank_4_lambda_0e00,4,0.0,434176,3,0.162947483593598,False,e002_coupler/artifacts/attempt_001/fit/correction_selection.json
+rank_4_lambda_1e-04,4,0.0001,434176,3,0.16309814644046128,False,e002_coupler/artifacts/attempt_001/fit/correction_selection.json
+rank_4_lambda_1e-03,4,0.001,434176,3,0.16281086957314983,False,e002_coupler/artifacts/attempt_001/fit/correction_selection.json
+rank_4_lambda_1e-02,4,0.01,434176,3,0.16191834025084972,True,e002_coupler/artifacts/attempt_001/fit/correction_selection.json

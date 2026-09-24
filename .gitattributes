@@ -1,0 +1,6 @@
+# Sealed E001/E002 evidence is checked by SHA-256. Do not renormalize newlines.
+# Public docs, derived tables, and figures stay outside this rule.
+e001_handoff/** -text
+e001_handoff/* -text
+e002_coupler/** -text
+e002_coupler/* -text

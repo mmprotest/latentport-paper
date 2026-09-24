@@ -21,8 +21,10 @@ the latest filename.
 Each root has `FROZEN_MANIFEST.json`; each attempt has
 `FINAL_ARTIFACT_MANIFEST.json`. E001's final manifest paths are relative
 to its attempt; E002's are relative to its experiment root. These manifests
-describe larger historical runs, including many absent files. They are not
-inventories of a complete public checkout.
+describe larger historical runs, including state dumps that are not in this
+checkout. They are not inventories of every file required for a GPU rerun.
+The LOCKED observation files used for the headline statistics are present;
+see [MISSING_ARTIFACTS.md](MISSING_ARTIFACTS.md).
 
 [ARTIFACT_INVENTORY.csv](ARTIFACT_INVENTORY.csv) lists the 360 original
 non-environment files inspected, including the original LICENSE and PDF,
@@ -37,22 +39,22 @@ In the following table, **E1 RESULT** means
 
 | Claim / output | Source and JSON path / computation | Check available |
 |---|---|---|
-| E001 condition means; hero left panel | E1 RESULT: `empty_9b_nll`, `kv_only_nll`, `full_translated_nll`, `native_9b_nll` | Agreement with `diagnostics/required_tables.json:locked_fidelity[*].mean_nll`; observations missing |
+| E001 condition means; hero left panel | E1 RESULT: `empty_9b_nll`, `kv_only_nll`, `full_translated_nll`, `native_9b_nll` | Recomputed from `locked/raw_evidence.jsonl`; agrees with `diagnostics/required_tables.json:locked_fidelity[*].mean_nll` |
 | E001 continued source / direct GDN / donor means | E1 RESULT: `source_4b_nll`, `kv_gdn_direct_nll`, `full_shuffled_nll` | Aggregate agreement |
 | E001 KV improvement over empty | E1 RESULT: `empty_9b_nll - kv_only_nll` | Arithmetic |
-| E001 full vs KV gain and 95% CI | E1 RESULT: `full_vs_kv_delta`, `full_vs_kv_bootstrap_ci` | Arithmetic and agreement with canonical 4K result; CI not recomputed |
-| E001 source specificity | E1 RESULT: `full_vs_shuffled_delta`, `full_vs_shuffled_bootstrap_ci` | Arithmetic; CI not recomputed |
-| E001 79.7% document-gap reduction | E1 RESULT: `full_vs_kv_improvement_fraction`; median `full_vs_kv_median_improvement_fraction` | Reported only; not a ratio of means |
+| E001 full vs KV gain and 95% CI | E1 RESULT: `full_vs_kv_delta`, `full_vs_kv_bootstrap_ci` | Recomputed from LOCKED document rows; 64/64 documents improve |
+| E001 source specificity | E1 RESULT: `full_vs_shuffled_delta`, `full_vs_shuffled_bootstrap_ci` | Recomputed from LOCKED document rows |
+| E001 79.7% document-gap reduction | E1 RESULT: `full_vs_kv_improvement_fraction`; median `full_vs_kv_median_improvement_fraction` | Recomputed mean and median of valid document ratios; not a ratio of means |
 | E001 NCR in companion | E1 RESULT: `(empty_9b_nll - condition_nll)/(empty_9b_nll - native_9b_nll)` | New arithmetic from sealed means |
 | E001 TQR and failed gate | E1 RESULT: `tqr`, `full_translated_delta_nll`; gate in `e001_handoff/analysis/verdict.py:choose_verdict` | Arithmetic; threshold failure visible |
 | E002 base mean | E2 RESULT: `factorial_locked_metrics.TDD.document_nll[*]` → mean → `base_state_nll` | Recomputed |
 | E002 corrected/native means | Ablation identities below → mean → E2 RESULT: `joint_corrected_nll`, `native_9b_nll` | Recovered and recomputed |
-| E002 continued source, empty, donor means | E2 RESULT: `source_4b_nll`, `empty_9b_nll`, `joint_shuffled_nll` | Sealed aggregates only |
+| E002 continued source, empty, donor means | E2 RESULT: `source_4b_nll`, `empty_9b_nll`, `joint_shuffled_nll` | Recomputed from `locked/raw_evidence.jsonl` |
 | E002 correction improvement and 95% CI | Paired base minus corrected → E2 RESULT: `base_vs_corrected_improvement.mean_difference/bootstrap_ci` | Recomputed |
-| E002 corrected minus continued source | E2 RESULT: `corrected_vs_source_delta`, `corrected_vs_source_bootstrap_ci` | Point arithmetic; CI not recomputed |
-| E002 corrected minus donor | E2 RESULT: `corrected_vs_shuffled_delta`, `corrected_vs_shuffled_bootstrap_ci` | Point arithmetic; CI not recomputed |
+| E002 corrected minus continued source | E2 RESULT: `corrected_vs_source_delta`, `corrected_vs_source_bootstrap_ci` | Recomputed paired mean and bootstrap CI |
+| E002 corrected minus donor | E2 RESULT: `corrected_vs_shuffled_delta`, `corrected_vs_shuffled_bootstrap_ci` | Recomputed paired mean and bootstrap CI |
 | E002 remaining-gap reduction and CI | Paired base/corrected/native observations → E2 RESULT: `remaining_gap_reduction`, `remaining_gap_bootstrap_ci` | Recomputed ratio of means and paired bootstrap |
-| E002 NCR / TQR | E2 RESULT: `native_context_recovery`, `tqr`; formulas in DATA_DICTIONARY | Recomputed using sealed baseline means |
+| E002 NCR / TQR | E2 RESULT: `native_context_recovery`, `tqr`; formulas in DATA_DICTIONARY | Recomputed from included document means, including the previously aggregate-only baselines |
 | E002 failed stronger gates | E2 RESULT: `corrected_delta_nll`, `native_context_recovery`, `top1_agreement_native`; `e002_coupler/analysis/verdict.py:determine_4k_verdict` | Threshold failures visible |
 
 Every generated summary-table row carries its exact source artifact and
@@ -90,23 +92,23 @@ run artifacts and the old package layout.
 | Paper item | Public reproduction / gap |
 |---|---|
 | Figure 1 | Conceptual schematic remains in the original PDF; no new scientific values |
-| Figure 2 | `figures/main_handoff_comparison.*`: same primary means; clearly labeled reported/recomputed effect CIs |
-| Figure 3 | **Unavailable:** needs E001 paired per-document NLLs. Original scatter PNG remains in the evidence package, but pixels are not treated as observations |
+| Figure 2 | `figures/main_handoff_comparison.*`: primary excess-NLL means; paired CIs reproduced from included observations |
+| Figure 3 | `figures/e001_paired_documents.*`: paired PG19 NLLs from E001 LOCKED raw evidence. The paper plots excess NLL; the equality comparison is the same. Original scatter pixels are not treated as observations |
 | Figure 4 | `figures/e002_factorial_comparison.*`: full validation/LOCKED factorial; means and document CIs |
-| Figure 5 | `figures/e002_complete_comparison.*`: sealed primary/control means; missing control observations disclosed |
+| Figure 5 | `figures/e002_complete_comparison.*`: E002 means, including empty, source, and wrong-donor, recomputed from included observations |
 | Figure 6 | `figures/state_convergence.*`: E001 `diagnostics/postverdict_analysis.json:state_convergence`; E2 RESULT `state_repair_token_<1|4|16|64|256>` |
 | Tables 1–2 | Architecture/metric definitions are preserved in the PDF, schema artifacts, and DATA_DICTIONARY; not newly typeset |
 | Tables 3–4, 7–8 | Primary NLL/effect content in `tables/e001_summary.csv` and `e002_summary.csv`; these are compact summaries, not full typeset replicas of every fidelity column |
-| Table 5 | **Unavailable from experiment artifacts:** E002 candidate selection records are missing; PDF values are not hand-transcribed into the pipeline |
+| Table 5 | `tables/e002_correction_candidates.csv` from `fit/correction_selection.json`. This is the candidate grid, not a typeset copy of the PDF table |
 | Table 6 | Correction inventory and magnitude summary remain in E2 RESULT |
 | Tables 9–10 | Cell vectors/means and all effects preserved; `tables/e002_factorial_effects.csv` exports estimates and CIs |
 | Table 11 | Ablation observations in `derived/e002_ablation_per_document.csv`; all six effects/CIs verified against the sealed ablation summary |
 | Table 12 | Sealed E2 RESULT timing fields retained; no end-to-end production interpretation |
 
 “Reproduced figure” means reproducible quantitative content in a new layout,
-not a byte-for-byte copy of the PDF artwork. Aggregate-only secondary
-figures can be redrawn but not independently regenerated from absent raw state
-measurements.
+not a byte-for-byte copy of the PDF artwork. State-convergence curves use
+sealed checkpoint means. They do not add uncertainty intervals the sealed
+diagnostics do not contain.
 
 ## Audit files
 
@@ -114,9 +116,10 @@ There is **no `INDEPENDENT_AUDIT.json`** in either package.
 E001 includes `implementation/REPOSITORY_AUDIT.md`,
 `final_test_results.json`, and restoration artifacts. E002 includes
 `implementation/e001_integrity.json` and `final_integrity_audit.json`.
-These record original checks; they do not prove this partial public checkout
-contains all inputs used by those checks. The manuscript's local revision
-feasibility audit is also absent.
+These record original checks. They do not prove that every full-run tensor
+used by those checks is in this checkout. The manuscript's local revision
+feasibility audit is also absent. Headline LOCKED observations are present
+and are what `analysis/verify_results.py` recomputes.
 
 [PUBLIC_RELEASE_AUDIT.md](PUBLIC_RELEASE_AUDIT.md) is a companion-layer release
 check, not a newly invented independent scientific audit.

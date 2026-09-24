@@ -17,6 +17,25 @@ S2 = f"{A2}/locked/locked_metrics.json"
 SELECTION = f"{A2}/fit/correction_selection.json"
 
 
+def public_value(value):
+    """Remove machine-local paths from generated summaries. Sealed inputs stay unchanged."""
+    if isinstance(value, str):
+        normalized = value.replace("\\", "/")
+        drive = len(normalized) > 2 and normalized[1] == ":" and normalized[2] == "/"
+        home = normalized.startswith("/Users/") or normalized.startswith("/home/")
+        marker = "site-packages/"
+        if marker in normalized and (drive or home or normalized.startswith("/")):
+            return normalized.split(marker, 1)[1]
+        if drive or home:
+            return normalized.rsplit("/", 1)[-1]
+        return value
+    if isinstance(value, list):
+        return [public_value(item) for item in value]
+    if isinstance(value, dict):
+        return {key: public_value(item) for key, item in value.items()}
+    return value
+
+
 def record(value, source, pointer, method="sealed_aggregate", ci=None, ci_source=None,
            observations=None):
     return {"estimate": float(value), "ci95": ci, "source_artifact": source,
@@ -202,7 +221,7 @@ def build():
             name: {k: v for k, v in metrics.items() if k != "document_nll"}
             for name, metrics in s2["conditions"].items()}},
         "architecture": {"source_artifact": f"{A1}/implementation/architecture_correspondence.json",
-                         "data": read(f"{A1}/implementation/architecture_correspondence.json")},
+                         "data": public_value(read(f"{A1}/implementation/architecture_correspondence.json"))},
         "e002_selection": {"source_artifact": SELECTION, "candidate_grid": selection["candidate_grid"],
                           "selected_candidate": selection["selected"]["selected_candidate"]},
         "e002_correction": {"source_artifact": R2,

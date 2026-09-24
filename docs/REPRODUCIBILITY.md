@@ -1,13 +1,35 @@
 # Reproducibility
 
+Two different claims are easy to mix together. This repository supports the first. It does not, by itself, support the second.
+
 ## A. Reproduce published statistics from included artifacts
 
-**Artifact-level reproduction: partial.** E002's base/corrected/native means,
-correction improvement and CI, remaining-gap reduction and CI, factorial
-contrasts and CIs, and post-verdict ablation effects can be recomputed.
-E001's primary per-document observations and E002's source, empty-target, and
-wrong-donor observations are absent. Aggregate arithmetic is checkable; the
-missing observations' sampling uncertainty is not.
+**Headline reproduction from frozen evidence: available.**
+
+The repository includes the frozen E001/E002 evidence required to regenerate
+the published headline aggregate statistics, tables, and figures.
+
+This is distinct from re-running the original GPU experiment from scratch,
+which requires the specified model checkpoints and runtime environment.
+
+Included and hash-checked:
+
+| Evidence | Path |
+|---|---|
+| E001 LOCKED raw evidence | `e001_handoff/artifacts/attempt_001/locked/raw_evidence.jsonl` |
+| E001 LOCKED derived statistics | `e001_handoff/artifacts/attempt_001/locked/derived_statistics.json` |
+| E002 LOCKED raw evidence | `e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl` |
+| E002 LOCKED metrics | `e002_coupler/artifacts/attempt_001/locked/locked_metrics.json` |
+| E002 correction selection | `e002_coupler/artifacts/attempt_001/fit/correction_selection.json` |
+| E002 validation factorial | `e002_coupler/artifacts/attempt_001/factorial/raw_evidence.jsonl` |
+| E002 LOCKED factorial vectors | `e002_coupler/artifacts/attempt_001/verdict/RESULT.json` and the LOCKED raw file |
+
+`python analysis/verify_results.py` recomputes the headline means, paired
+bootstrap intervals, the E001 64/64 improvement count, E002 factorial
+contrasts, and the post-verdict ablation effects from those files. It also
+checks SHA-256 values in the frozen manifests for included files of at most
+10 MB. Larger tensors are skipped by that hash pass and are not required for
+the headline statistics.
 
 From the repository root, create an isolated Python 3.11 environment:
 
@@ -22,33 +44,19 @@ python analysis/extract_results.py
 python analysis/verify_results.py
 python analysis/reproduce_figures.py
 python analysis/reproduce_tables.py
-```
-
-The extractor also accepts the small, hash-matching sealed per-document summaries
-listed in [MISSING_ARTIFACTS.md](MISSING_ARTIFACTS.md). Neither those summaries
-nor the original raw files are currently present.
-
-The default verification command currently exits **2**, explaining the required
-checks it cannot perform. Run the figure and table commands separately after
-reading that output. Exit **1** indicates a schema, hash, or numerical error.
-
-For the explicitly incomplete available-data check:
-
-```bash
-python analysis/verify_results.py --available-only
 python analysis/validate_public_metadata.py
 ```
 
-This mode returns zero only if all available checks pass. It still prints
-`COMPLETE HEADLINE VERIFICATION BLOCKED`; it does not certify the absent
-observations. CI uses the strict default, so this checkout is intentionally
-not green until the missing evidence is restored and verified.
+Exit **0** means the checks passed. Exit **1** indicates a schema, hash, or
+numerical mismatch. Exit **2** would mean a required observation file is
+absent. On the current checkout the observation files above are present, so
+a passing run is exit 0 rather than a partial certificate.
 
 No model downloads, network access after dependency installation, GPU,
-PyTorch, llama.cpp build, pandas, or SciPy are needed. NumPy implements the
-statistics; matplotlib renders the figures; PyYAML validates public metadata.
-Scripts resolve paths relative to their own location and write only
-`derived/`, `figures/`, and `tables/`.
+PyTorch, llama.cpp, pandas, or SciPy are needed for this path. NumPy
+implements the statistics; matplotlib renders the figures; PyYAML validates
+public metadata. Scripts resolve paths relative to their own location and
+write only `derived/`, `figures/`, and `tables/`.
 
 ### Independent unit and exact bootstrap
 
@@ -70,10 +78,8 @@ The generator is NumPy `default_rng`; the percentile interval uses
 | E002 | 2026090103 | `e002_coupler/analysis/statistics.py::bootstrap_mean_ci` |
 
 The public implementation is independent and cross-checked against the
-unchanged pure functions extracted from these files with Python's AST. This
-avoids importing their inference dependencies. E001's implementation can be
-cross-checked on an available vector; its original primary CIs cannot be
-recomputed without its observations.
+unchanged pure functions extracted from these files with Python's AST.
+This avoids importing their inference dependencies.
 
 E002 remaining-gap reduction resamples the paired base/corrected/native rows
 and computes a **ratio of sample means in each replicate**, using the same
@@ -84,50 +90,41 @@ nonpositive KV-minus-native denominators excluded. It is neither NCR nor
 the ratio of the split's mean excess NLLs. E001's aggregate TQR and mean
 document TQR differ; the sealed aggregate TQR is the headline quantity.
 
-### Recovery of E002 observations
+### What the derived tables are
 
-The unchanged post-verdict ablation source records, for each document and
-each of six ablations:
+`analysis/extract_results.py` reads the LOCKED raw JSONL files, checks their
+recorded SHA-256 values, and writes one row per document. E002 native and
+corrected scores are also cross-checked against the six post-verdict ablation
+identities. Those recovered values are not fresh model evaluations.
 
-```text
-native_nll    = ablation.nll - ablation.delta_nll_to_native
-corrected_nll = ablation.nll - ablation.impact_vs_joint_corrected
-```
-
-These identities follow the included ablation writer. All six ablations must
-recover exactly identical values for each document or extraction fails.
-The recovered 64 native/corrected pairs reproduce their sealed means exactly.
-The TDD/base vector comes from
-`RESULT.json:factorial_locked_metrics.TDD.document_nll`.
-
-Alignment is checked against the frozen LOCKED document IDs and indices.
-The original LOCKED runner iterates the manifest in frozen selection-hash
-order, and the aggregator appends document NLL in that same order. These
-recovered values are not fresh model evaluations. The method cannot recover
-continued-4B, empty-target, or wrong-donor observations.
+Condition-mean intervals newly computed by the extractor are document-mean
+bootstraps. They are not sealed uncertainty intervals for the condition means.
+The paper's reported intervals are the paired contrasts, and those are
+recomputed by the verifier.
 
 ### Determinism and scope
 
 CSV files use UTF-8, LF newlines, explicit column order, and round-trip float
 strings. JSON is sorted, rejects non-finite values, and contains no generation
 timestamp. Figures use Agg, DejaVu Sans, fixed dimensions, and no PDF creation
-timestamp. Repeated runs in the same environment should be byte-identical.
-Different platforms or matplotlib dependencies may render different figure
-bytes while leaving scientific values unchanged.
+timestamp. Repeated runs in the same environment should be byte-identical for
+`derived/` and `tables/`. Different platforms or matplotlib builds may render
+different figure bytes while leaving scientific values unchanged.
 
-See [ARTIFACT_MAP.md](ARTIFACT_MAP.md) for paper figures and tables that remain
-unavailable. The scripts do not digitize the PDF or synthesize observations.
+See [ARTIFACT_MAP.md](ARTIFACT_MAP.md) for the paper figure each public plot
+corresponds to. The scripts do not digitize the PDF or synthesize observations.
+Generated summaries replace machine-local absolute paths with package-relative
+references. The sealed evidence files keep their original paths.
 
 ## B. Re-run model experiments
 
-**Full model-level reproduction: partial code is included; an end-to-end
-runnable public experiment is not currently included.**
+**Full model-level reproduction: the original runtime is present as evidence; an end-to-end public rerun is not self-contained.**
 
 The original E001/E002 runtime, state, translator, correction, and analysis
-modules are present as evidence. They import a larger
-`experiments.latentport` package namespace, depend on frozen local paths and
-artifacts, and preserve one-shot execution guards. This companion does not
-patch those sealed files or recommend invoking the original runners in place.
+modules are present. They import a larger `experiments.latentport` package
+namespace, depend on frozen local paths and artifacts, and preserve one-shot
+execution guards. This companion does not patch those sealed files or
+recommend invoking the original runners in place.
 
 | Item | Recorded original configuration |
 |---|---|
@@ -146,17 +143,21 @@ patch those sealed files or recommend invoking the original runners in place.
 | Detailed environment | `e001_handoff/artifacts/attempt_001/implementation/runtime_environment.json` |
 | Model file hash records | `e001_handoff/artifacts/attempt_001/implementation/model_revisions.json` and E002 `implementation/e001_integrity.json` |
 
-These are recorded run versions, not dependencies required by this companion.
-There is no llama.cpp-based public rerun path in these experiments. Individual
-source-code hashes are recorded in the frozen manifests; no separate public
-runtime commit should be inferred.
+These are recorded run versions, not dependencies required by the headline scripts.
 
-Missing material includes paired training-state arrays, selected E002
-correction weights and selection records, original LOCKED records, some
-corpus/token artifacts, and the enclosing runtime package setup. Local E001
-translator weights and E002 factorial state dumps are preserved but excluded
-from Git staging. Their presence does not make the rerun self-contained.
+A from-scratch rerun still needs the model checkpoints, the enclosing runtime
+package, paired training-state arrays, corpus token artifacts, and the
+selected E002 correction weights (`correction.safetensors`, recorded in the
+selection file and not included in this checkout). Local translator tensors
+and E002 factorial state dumps may exist on a development machine; `*.pt`,
+`*.npy`, and `*.safetensors` are gitignored. Their presence does not make
+the rerun self-contained.
+
 The full-run manifests record roughly 169 GB of E001 artifacts and 104 GB of
-E002 artifacts; these are historical inventory sizes, not a verified minimum
+E002 artifacts. Those are historical inventory sizes, not a verified minimum
 resource estimate. No elapsed-time or end-to-end resource estimate for a
-public rerun has been validated.
+public rerun has been validated. Recorded stage timings are not a production
+latency result.
+
+Sealed experiment unit tests import `experiments.latentport` and are outside
+the lightweight GitHub Actions job in `.github/workflows/verify.yml`.

@@ -14,16 +14,12 @@ one real bridge token. E002 secondary state tracking extends to 256 inputs.
 | `split` | `LOCKED`: untouched primary test; `VALIDATION_FACTORIAL`: E002 component selection; `LOCKED_POSTVERDICT`: subsequent diagnostics on the same test documents |
 | `document_index` | Zero-based position in the frozen source ordering; never an independent observation itself |
 | `source_artifact` | Repository-relative source file(s); semicolon separates multiple files |
-| `observation_status` | `roster_only` for missing E001 outcomes, exact ablation recovery for E002, or `raw_observations` / `sealed_per_document_summary` when exact original outcomes become available |
+| `observation_status` | `raw_observations` when the row comes from LOCKED raw evidence. Empty ratio fields mean a nonpositive denominator, not a missing document |
 
 ## E001: `e001_per_document.csv`
 
-Currently contains **64 roster rows and no NLL observations**. Only the five
-identity/status columns above are emitted. Listing a document does not
-supply its outcome.
-
-If exact hash-matching original raw evidence or the sealed per-document summary is restored, extraction
-also emits the seven NLL columns below, `improvement_fraction`, and `tqr`.
+Contains **64 LOCKED documents** extracted from
+`e001_handoff/artifacts/attempt_001/locked/raw_evidence.jsonl`.
 Missing ratios use an empty CSV field when their denominator is nonpositive.
 
 | NLL column | Original condition | Meaning |
@@ -38,15 +34,19 @@ Missing ratios use an empty CSV field when their denominator is nonpositive.
 
 ## E002: `e002_per_document.csv`
 
-Contains 64 rows. The first three identity fields above accompany:
+Contains 64 rows from `e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl`.
+The ablation identities are a cross-check, not the only source of native and
+corrected scores. The first three identity fields above accompany:
 
 | Column | Meaning |
 |---|---|
-| `native_9b_nll` | Native NLL recovered from each ablation's NLL minus its native difference |
-| `joint_corrected_nll` | Corrected NLL recovered from each ablation's NLL minus its correction-relative impact |
-| `ddd_nll` … `ttt_nll` | Eight original factorial condition vectors from the sealed RESULT |
+| `native_9b_nll` | Native NLL from the LOCKED raw record; identical to the ablation identity `nll - delta_nll_to_native` |
+| `joint_corrected_nll` | Corrected NLL from the LOCKED raw record; identical to `nll - impact_vs_joint_corrected` |
+| `source_4b_nll`, `empty_9b_nll`, `joint_shuffled_nll` | Continued 4B, empty target, and wrong-donor NLL from the same raw records |
+| `ddd_nll` … `ttt_nll` | Eight factorial condition NLLs |
 | `base_state_nll` | Selected TDD value, identical to `tdd_nll` |
-| `observation_status`, `source_artifact` | Recovery method and exact source files |
+| `ncr`, `tqr` | Per-document ratios. Empty when the denominator is nonpositive |
+| `observation_status`, `source_artifact` | `raw_observations` and the LOCKED raw path |
 
 Factorial letters are in **KV / recurrent / convolution** order.
 **D** means direct copy; **T** means the frozen learned translation. Both retain
@@ -55,8 +55,8 @@ a state component; D does not mean deletion. `BASE_STATE` is TDD.
 `JOINT_SHUFFLED` installs another document's corrected package.
 
 Continued-4B, empty-target, wrong-donor, per-document NCR, and per-document TQR
-columns are intentionally absent. Their observations cannot be recovered.
-Their aggregate means and ratios are retained in `headline_results.json`.
+are included from the LOCKED raw evidence. Aggregate means and ratios are
+also retained in `headline_results.json`.
 
 ## Supplemental CSVs
 
@@ -87,7 +87,8 @@ sealed E001 headline field. Do not substitute it for the mean document
 improvement fraction. Ratios need not be between 0 and 1.
 
 Headline JSON records point estimates, CI endpoints where present, source
-files, JSON paths, methods, source hashes, and missing-observation status.
+files, JSON paths, methods, and source hashes.
 Summary-table CI blanks mean **not reported**, not zero uncertainty.
-A `sealed_interval_observations_missing` status explicitly means a reported
-interval that cannot yet be reproduced from this checkout.
+`sealed_interval_observations_missing` is reserved for a reported interval
+whose document rows are absent. The current headline checkout does not use
+that status for the primary contrasts.

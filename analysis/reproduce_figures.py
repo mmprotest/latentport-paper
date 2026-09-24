@@ -63,7 +63,7 @@ def hero(h):
     b = h["E002"]["comparisons"]["base_minus_corrected"]
     fig.text(0.08, 0.23,
              f'Full state lowers NLL by {a["estimate"]:.4f} vs KV-only.\n'
-             f'Reported paired 95% CI [{a["ci95"][0]:.4f}, {a["ci95"][1]:.4f}].',
+             f'Reproduced paired 95% CI [{a["ci95"][0]:.4f}, {a["ci95"][1]:.4f}].',
              fontsize=10, linespacing=1.6)
     fig.text(0.56, 0.23,
              f'Correction lowers NLL by {b["estimate"]:.4f} vs the base.\n'
@@ -71,7 +71,7 @@ def hero(h):
              fontsize=10, linespacing=1.6)
     fig.text(0.08, 0.10, "Panel scales and corpora differ. Bars are split means; intervals concern paired differences.",
              fontsize=9)
-    fig.text(0.08, 0.05, "Artifact coverage is partial: E001 observations and E002 baseline/control observations are absent.",
+    fig.text(0.08, 0.05, "Means and paired intervals are reproduced from the included frozen observations.",
              fontsize=9)
     save(fig, "main_handoff_comparison")
 
@@ -114,7 +114,7 @@ def complete_e002(h):
     bars(ax, labels, excess(h["E002"], conditions))
     fig.suptitle("E002 · complete handoff and control comparison", fontsize=14, y=0.96)
     fig.text(0.5, 0.88, f'{h["route"]} · 64 documents · teacher-forced', ha="center")
-    fig.text(0.08, 0.10, "Sealed condition means. Source, empty, and wrong-donor observations are missing from this checkout.", fontsize=9)
+    fig.text(0.08, 0.10, "All six condition means are reproduced from included LOCKED observations.", fontsize=9)
     fig.text(0.08, 0.05, "Reported paired control intervals are in tables/e002_summary.csv; they are not intervals for these means.", fontsize=9)
     save(fig, "e002_complete_comparison")
 

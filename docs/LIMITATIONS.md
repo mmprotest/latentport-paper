@@ -28,11 +28,14 @@
 - **No production speed or cost result.** Recorded stage timings come from
   a scientific prototype. They do not demonstrate end-to-end latency,
   throughput, cost, energy savings, or production readiness.
-- **Artifact coverage.** The checkout omits original LOCKED observations,
-  some training/selection artifacts, and the manuscript-referenced local
-  feasibility audit. Independent audit files are not present. Some E002
-  outcomes can be recovered exactly; E001 sampling uncertainty and E002
-  baseline/control intervals cannot yet be independently reproduced here.
+- **Artifact coverage.** Headline LOCKED observations, derived statistics,
+  correction-selection records, and the factorial evidence used for the
+  published component analysis are included and verified. A from-scratch
+  GPU rerun is not self-contained: model checkpoints, the enclosing runtime
+  package, and gitignored tensors including the selected correction weights
+  are outside this checkout. No independent audit JSON and no manuscript
+  feasibility audit are included. Do not treat those gaps as missing
+  headline numbers.
 
 These boundaries apply even when an original experiment's internal verdict
 uses the label `FULL_STATE_HANDOFF`.

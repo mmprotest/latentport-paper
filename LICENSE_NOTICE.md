@@ -6,8 +6,9 @@ unchanged, including its patent-related provisions.
 
 This repository contains research artifacts associated with patent-pending
 work. Licensing terms and the intended scope of the existing license are
-under review. The repository owner should resolve that scope before public
-release of the currently untracked material.
+under review. The repository owner should resolve that intended scope before
+treating a public release as a final licensing decision. The evidence files
+are present in the repository; that fact does not settle the license scope.
 
 This notice does not replace or amend the existing LICENSE, determine the
 legal effect of that file, or create an additional software or patent license.

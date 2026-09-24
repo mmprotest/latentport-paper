@@ -2,8 +2,8 @@
 
 All claims refer to Qwen3.5-4B-Base → Qwen3.5-9B-Base at a 4K prefix.
 “Reported” means preserved in a sealed artifact. “Recomputed” means obtained
-from included independent document observations or the documented exact
-ablation identities. Aggregate agreement is not observation-level replication.
+from included independent document observations. Headline contrasts are
+observation-level recomputations from the included LOCKED rows.
 
 ## 1. KV-only transfer gives limited benefit
 
@@ -12,8 +12,9 @@ ablation identities. Aggregate agreement is not observation-level replication.
 gain 0.130383 nats/token.
 **Artifact / metric:** E001 `verdict/RESULT.json`, `empty_9b_nll`,
 `kv_only_nll`, `native_9b_nll`; NCR from means is about 0.1202.
-**Important limitation:** Aggregate arithmetic is verified. E001's underlying
-64 observations and the exact KV-versus-empty CI artifact are missing.
+**Important limitation:** The 64 document observations and the KV-versus-empty
+interval recompute from included LOCKED raw evidence. The contrast is still
+one sibling pair and one teacher-forced split.
 
 ## 2. Adding persistent state materially improves continuation
 
@@ -25,9 +26,9 @@ reported paired 95% CI [0.692050, 0.804669].
 `full_vs_kv_bootstrap_ci`.
 **Important limitation:** The intervention bundles recurrent matrices,
 convolution history, and initialization semantics; it does not isolate
-recurrent matrices alone. The paper reports all 64 documents improve, but
-this checkout cannot independently check that claim. The full handoff gate
-fails. Direct GDN reuse also beats the tested learned GDN maps.
+recurrent matrices alone. All 64 documents improve; that count recomputes
+from the included observations. The full handoff gate fails. Direct GDN
+reuse also beats the tested learned GDN maps.
 
 ## 3. Wrong-donor control supports source specificity
 
@@ -41,7 +42,8 @@ NLL −1.188365, reported CI [−1.295645, −1.085469].
 **Important limitation:** A deterministic donor permutation has no fixed
 points: each target receives another document's complete transferred package.
 It tests package specificity, not which individual component stores which
-information. The exact donor observations/CIs cannot be replayed here.
+information. The donor observations and intervals recompute from the included
+LOCKED raw files.
 
 ## 4. E002 correction improves the held-out handoff
 
@@ -107,8 +109,9 @@ data, with held-out correction validation and fresh LOCKED evaluation.
 **Artifact / metric:** E002 `PREREGISTRATION.json:training/correction` and
 `RESULT.json:correction_parameter_count/correction_rank/identity_lambda`.
 **Important limitation:** “Small correction” excludes the existing KV translator
-and does not mean a training-free universal adapter. Candidate-selection
-records and selected correction weights are absent from this checkout.
+and does not mean a training-free universal adapter. The candidate-selection
+record is included. The selected correction weight file,
+`correction.safetensors`, is not in this checkout.
 
 ## 10. No general cross-family claim
 

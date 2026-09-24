@@ -10,7 +10,8 @@
         "ci_source": "full_vs_kv_bootstrap_ci",
         "estimate": 0.7473230641335249,
         "json_path": "full_vs_kv_delta",
-        "method": "sealed_aggregate",
+        "method": "paired_document_difference",
+        "observation_artifact": "e001_handoff/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e001_handoff/artifacts/attempt_001/verdict/RESULT.json"
       },
       "full_vs_wrong_donor": {
@@ -21,23 +22,29 @@
         "ci_source": "full_vs_shuffled_bootstrap_ci",
         "estimate": 0.9482334535568953,
         "json_path": "full_vs_shuffled_delta",
-        "method": "sealed_aggregate",
+        "method": "paired_document_difference",
+        "observation_artifact": "e001_handoff/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e001_handoff/artifacts/attempt_001/verdict/RESULT.json"
       },
       "kv_vs_empty": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          0.11741965934634209,
+          0.14376720953732727
+        ],
+        "ci_source": "kv_vs_empty_bootstrap_ci",
         "estimate": 0.13038287311792374,
-        "json_path": "empty_9b_nll - kv_only_nll",
-        "method": "aggregate_arithmetic",
-        "source_artifact": "e001_handoff/artifacts/attempt_001/verdict/RESULT.json"
+        "json_path": "kv_vs_empty_mean_nll_improvement",
+        "method": "paired_document_difference",
+        "observation_artifact": "e001_handoff/artifacts/attempt_001/locked/raw_evidence.jsonl",
+        "source_artifact": "e001_handoff/artifacts/attempt_001/locked/derived_statistics.json"
       },
       "mean_document_improvement_fraction": {
         "ci95": null,
         "ci_source": null,
         "estimate": 0.7965331754321586,
         "json_path": "full_vs_kv_improvement_fraction",
-        "method": "sealed_aggregate",
+        "method": "mean_of_valid_document_ratios",
+        "observation_artifact": "e001_handoff/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e001_handoff/artifacts/attempt_001/verdict/RESULT.json"
       },
       "median_document_improvement_fraction": {
@@ -45,7 +52,8 @@
         "ci_source": null,
         "estimate": 0.8022223333020289,
         "json_path": "full_vs_kv_median_improvement_fraction",
-        "method": "sealed_aggregate",
+        "method": "median_of_valid_document_ratios",
+        "observation_artifact": "e001_handoff/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e001_handoff/artifacts/attempt_001/verdict/RESULT.json"
       },
       "ncr_full": {
@@ -53,7 +61,8 @@
         "ci_source": null,
         "estimate": 0.8091411796552747,
         "json_path": "(empty_9b_nll - full_translated_nll) / (empty_9b_nll - native_9b_nll)",
-        "method": "new_ratio_of_sealed_means",
+        "method": "new_ratio_of_document_means",
+        "observation_artifact": "e001_handoff/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e001_handoff/artifacts/attempt_001/verdict/RESULT.json"
       },
       "ncr_kv": {
@@ -61,7 +70,8 @@
         "ci_source": null,
         "estimate": 0.12019760523877746,
         "json_path": "(empty_9b_nll - kv_only_nll) / (empty_9b_nll - native_9b_nll)",
-        "method": "new_ratio_of_sealed_means",
+        "method": "new_ratio_of_document_means",
+        "observation_artifact": "e001_handoff/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e001_handoff/artifacts/attempt_001/verdict/RESULT.json"
       },
       "tqr": {
@@ -69,65 +79,94 @@
         "ci_source": null,
         "estimate": -0.4132274797724475,
         "json_path": "tqr",
-        "method": "sealed_aggregate",
+        "method": "ratio_of_document_means",
+        "observation_artifact": "e001_handoff/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e001_handoff/artifacts/attempt_001/verdict/RESULT.json"
       }
     },
     "conditions": {
       "EMPTY_9B": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          3.137843842059374,
+          3.352425216976553
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 3.2456535696983337,
         "json_path": "empty_9b_nll",
-        "method": "sealed_aggregate",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e001_handoff/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e001_handoff/artifacts/attempt_001/verdict/RESULT.json"
       },
       "FULL_SHUFFLED": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          3.2078149651177226,
+          3.4272999114356937
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 3.3161810860037804,
         "json_path": "full_shuffled_nll",
-        "method": "sealed_aggregate",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e001_handoff/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e001_handoff/artifacts/attempt_001/verdict/RESULT.json"
       },
       "FULL_TRANSLATED": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          2.2610469890758393,
+          2.4729852537158874
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 2.367947632446885,
         "json_path": "full_translated_nll",
-        "method": "sealed_aggregate",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e001_handoff/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e001_handoff/artifacts/attempt_001/verdict/RESULT.json"
       },
       "KV_GDN_DIRECT": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          2.1815337798092513,
+          2.39770212774165
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 2.291314037516713,
         "json_path": "kv_gdn_direct_nll",
-        "method": "sealed_aggregate",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e001_handoff/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e001_handoff/artifacts/attempt_001/verdict/RESULT.json"
       },
       "KV_ONLY": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          3.0095282277092337,
+          3.2216959128156306
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 3.11527069658041,
         "json_path": "kv_only_nll",
-        "method": "sealed_aggregate",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e001_handoff/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e001_handoff/artifacts/attempt_001/verdict/RESULT.json"
       },
       "NATIVE_9B": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          2.0490936500485986,
+          2.267956668836996
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 2.1609158758074045,
         "json_path": "native_9b_nll",
-        "method": "sealed_aggregate",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e001_handoff/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e001_handoff/artifacts/attempt_001/verdict/RESULT.json"
       },
       "SOURCE_4B": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          2.1911901323124767,
+          2.419090658519417
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 2.3074115812778473,
         "json_path": "source_4b_nll",
-        "method": "sealed_aggregate",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e001_handoff/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e001_handoff/artifacts/attempt_001/verdict/RESULT.json"
       }
     },
@@ -148,7 +187,8 @@
         "ci_source": "base_vs_corrected_improvement.bootstrap_ci",
         "estimate": 0.02902241237461567,
         "json_path": "base_vs_corrected_improvement.mean_difference",
-        "method": "sealed_aggregate",
+        "method": "paired_document_difference",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
       },
       "corrected_excess_nll": {
@@ -156,7 +196,8 @@
         "ci_source": null,
         "estimate": 0.07636733615072444,
         "json_path": "corrected_delta_nll",
-        "method": "sealed_aggregate",
+        "method": "difference_of_document_means",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
       },
       "corrected_minus_source": {
@@ -167,7 +208,8 @@
         "ci_source": "corrected_vs_source_bootstrap_ci",
         "estimate": -0.052144296234473586,
         "json_path": "corrected_vs_source_delta",
-        "method": "sealed_aggregate",
+        "method": "paired_document_difference",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
       },
       "corrected_minus_wrong_donor": {
@@ -178,7 +220,8 @@
         "ci_source": "corrected_vs_shuffled_bootstrap_ci",
         "estimate": -1.1883650682866573,
         "json_path": "corrected_vs_shuffled_delta",
-        "method": "sealed_aggregate",
+        "method": "paired_document_difference",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
       },
       "ncr": {
@@ -186,7 +229,8 @@
         "ci_source": null,
         "estimate": 0.9177547317073981,
         "json_path": "native_context_recovery",
-        "method": "sealed_aggregate",
+        "method": "ratio_of_document_means",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
       },
       "remaining_gap_reduction": {
@@ -197,7 +241,8 @@
         "ci_source": "remaining_gap_bootstrap_ci",
         "estimate": 0.27538174045113567,
         "json_path": "remaining_gap_reduction",
-        "method": "sealed_aggregate",
+        "method": "ratio_of_document_means",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
       },
       "tqr": {
@@ -205,121 +250,190 @@
         "ci_source": null,
         "estimate": 0.4057554578263965,
         "json_path": "tqr",
-        "method": "sealed_aggregate",
+        "method": "ratio_of_document_means",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
+      },
+      "ttt_minus_base": {
+        "ci95": [
+          0.01696919295936823,
+          0.041782068787142634
+        ],
+        "ci_source": "comparisons.ttt_minus_base.bootstrap_ci",
+        "estimate": 0.029046778567135334,
+        "json_path": "comparisons.ttt_minus_base.mean_difference",
+        "method": "paired_document_difference",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
+        "source_artifact": "e002_coupler/artifacts/attempt_001/locked/locked_metrics.json"
       }
     },
     "conditions": {
       "BASE_STATE": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          1.8672609597677365,
+          2.169350984948687
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 2.0184217002242804,
         "json_path": "base_state_nll",
-        "method": "mean_of_included_TDD_document_nll",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
       },
       "DDD": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          1.929757707635872,
+          2.2266295748064295
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 2.0781946582719684,
         "json_path": "factorial_locked_metrics.DDD.nll",
-        "method": "mean_of_included_document_nll",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
       },
       "DDT": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          1.9310772922355681,
+          2.2283144776709376
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 2.079620852135122,
         "json_path": "factorial_locked_metrics.DDT.nll",
-        "method": "mean_of_included_document_nll",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
       },
       "DTD": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          1.9471809445880353,
+          2.2329036757349967
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 2.0911695659160614,
         "json_path": "factorial_locked_metrics.DTD.nll",
-        "method": "mean_of_included_document_nll",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
       },
       "DTT": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          1.9502651090500875,
+          2.234486478823237
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 2.0930846175178885,
         "json_path": "factorial_locked_metrics.DTT.nll",
-        "method": "mean_of_included_document_nll",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
       },
       "EMPTY_9B": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          2.722364880423993,
+          2.959284971933812
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 2.841563619673252,
         "json_path": "empty_9b_nll",
-        "method": "sealed_aggregate",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
       },
       "JOINT_CORRECTED": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          1.8388999081682413,
+          2.1399556774646045
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 1.9893992878496647,
         "json_path": "joint_corrected_nll",
-        "method": "mean_of_recovered_ablation_identities",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
       },
       "JOINT_SHUFFLED": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          3.052775352820754,
+          3.301187277585268
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 3.177764356136322,
         "json_path": "joint_shuffled_nll",
-        "method": "sealed_aggregate",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
       },
       "NATIVE_9B": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          1.7586927334443319,
+          2.0666490082090605
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 1.9130319516989402,
         "json_path": "native_9b_nll",
-        "method": "mean_of_recovered_ablation_identities",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
       },
       "SOURCE_4B": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          1.8850518768071196,
+          2.1954427839198614
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 2.0415435840841383,
         "json_path": "source_4b_nll",
-        "method": "sealed_aggregate",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
       },
       "TDD": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          1.8672609597677365,
+          2.169350984948687
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 2.0184217002242804,
         "json_path": "factorial_locked_metrics.TDD.nll",
-        "method": "mean_of_included_document_nll",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
       },
       "TDT": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          1.8672952343244105,
+          2.1696980524575338
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 2.018709315918386,
         "json_path": "factorial_locked_metrics.TDT.nll",
-        "method": "mean_of_included_document_nll",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
       },
       "TTD": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          1.8995506692910566,
+          2.192966968100518
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 2.0462343553081155,
         "json_path": "factorial_locked_metrics.TTD.nll",
-        "method": "mean_of_included_document_nll",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
       },
       "TTT": {
-        "ci95": null,
-        "ci_source": null,
+        "ci95": [
+          1.9011542150052265,
+          2.1939188471995292
+        ],
+        "ci_source": "new document-mean bootstrap; not a sealed mean CI",
         "estimate": 2.0474684787914157,
         "json_path": "factorial_locked_metrics.TTT.nll",
-        "method": "mean_of_included_document_nll",
+        "method": "mean_of_raw_document_nll",
+        "observation_artifact": "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl",
         "source_artifact": "e002_coupler/artifacts/attempt_001/verdict/RESULT.json"
       }
     },
@@ -332,7 +446,6 @@
   "evaluation": "teacher-forced",
   "full_headline_reproduction_available": true,
   "independent_unit": "document",
-  "missing_primary_observations": [],
   "prefix_tokens": 4096,
   "route": "Qwen3.5 4B → 9B",
   "schema_version": 1,
@@ -342,15 +455,21 @@
     "e001_handoff/PREREGISTRATION.json": "598357a927f0de9de613d96351034a141aa0e08a29675175fdd840bd6269a19e",
     "e001_handoff/artifacts/CURRENT_ATTEMPT.json": "3cf900d115e35e08824edf17620523fff7e7b8dbcf3d60f6bec6f6f53e42bae7",
     "e001_handoff/artifacts/attempt_001/diagnostics/postverdict_analysis.json": "8d4a6b4af6ec96d51572a7c2bc2af6f520638737231061df6fbc5f81f7fb7a1b",
+    "e001_handoff/artifacts/attempt_001/implementation/architecture_correspondence.json": "04e6367fa47405b72e1f89d7874889896a992dee95bb2e449a6bc496833a4bb3",
+    "e001_handoff/artifacts/attempt_001/locked/derived_statistics.json": "725f5eddacd78097852a8d712e4e93f62ce854fb2f1b76d05d657fb380ebfb52",
     "e001_handoff/artifacts/attempt_001/locked/raw_evidence.jsonl": "1639038217b9bb376de33be57ab624e083a093a45dc5a5f8749b565247c9e546",
     "e001_handoff/artifacts/attempt_001/verdict/RESULT.json": "7290f0f16aca291c00fb80d4f0c8b35d13a6f9baf86758e4fb15481923e5ca6a",
     "e001_handoff/data/locked/manifest.jsonl": "f4d4e426e4b378c5648e1be7852286106cea5a02e43ae50dcc1f4ae8187e7794",
     "e002_coupler/FROZEN_MANIFEST.json": "4ea9e85a2450a6c0f8dbb979f6ecfba32d4f45606103a946a32595208359070c",
     "e002_coupler/PREREGISTRATION.json": "b5f220ac131c03bcd9f1ede4a210ba87d8df13dc1b3da861ffa214dc18b7a374",
     "e002_coupler/artifacts/attempt_001/diagnostics/postverdict_ablation_raw.jsonl": "5eeaaef39bb420c8bf24dd84f92accffbe179ebdd5ae9f8e82c1c42625f79681",
+    "e002_coupler/artifacts/attempt_001/diagnostics/postverdict_ablations.json": "b153c9c77f41339f3b87c67256a7097fd969103a00acd33d9daa1240c95221bf",
     "e002_coupler/artifacts/attempt_001/factorial/raw_evidence.jsonl": "f26c1f74dbf1193b20b4e9a553c8302e17588c2611312de5c3dc0d2d4260110d",
+    "e002_coupler/artifacts/attempt_001/fit/correction_selection.json": "76e658211aaf933922dbe1b1e714eef7877db996831e18d61a3c6d9674f5f62c",
+    "e002_coupler/artifacts/attempt_001/locked/locked_metrics.json": "8a2b2aff4719534395c4d75aff1dc6a3703bf0f154ede361a02c301c048ad40a",
     "e002_coupler/artifacts/attempt_001/locked/raw_evidence.jsonl": "a189c454a4f52a8ceb03ec09e0e109efa139ce01225a472c59a70148acd0c629",
     "e002_coupler/artifacts/attempt_001/verdict/RESULT.json": "1504a3058ec6beb30876829788871cdccb9d1c9bce87ce0da9d68196ffd2ab18",
-    "e002_coupler/data/locked/manifest.jsonl": "ac0b4db6065f5960e0d2bd7cf321f716fb16b9ae8026b12528c45f619398e524"
+    "e002_coupler/data/locked/manifest.jsonl": "ac0b4db6065f5960e0d2bd7cf321f716fb16b9ae8026b12528c45f619398e524",
+    "e002_coupler/data/validation_factorial/manifest.jsonl": "7c94d12f0e528d7c8206eb6780ca52d79ce16bd465e58bf344e95406975ce6f2"
   }
 }

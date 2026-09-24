@@ -1,13 +1,51 @@
 # Public release audit
 
-**Status: not ready for the requested complete public reproduction claim.**
+## Current repository status (2026-09-24)
 
-The companion layer is implemented. Scientific evidence files, their names,
-and the existing LICENSE and paper PDF are preserved. Missing observations,
-selection evidence, and licensing/publication decisions remain explicit.
-This is a repository preparation audit, not an independent scientific audit.
+Headline reproduction from the included frozen observations is available.
+`python analysis/verify_results.py` recomputes the E001 and E002 aggregate
+results, including the E001 64/64 count and the E002 baseline and control
+intervals. The LOCKED raw evidence, derived statistics, LOCKED metrics,
+correction-selection file, and factorial evidence listed in
+[MISSING_ARTIFACTS.md](MISSING_ARTIFACTS.md) are present and match their
+expected hashes.
+
+Publication metadata points at arXiv `2609.25053`:
+https://arxiv.org/abs/2609.25053. See [PUBLICATION.md](PUBLICATION.md).
+
+Two limits remain:
+
+- Re-running the original GPU experiment is not self-contained. It still
+  needs the model checkpoints, the enclosing runtime package, and gitignored
+  tensors, including `correction.safetensors`.
+- [LICENSE](../LICENSE) is Apache-2.0 and has not been amended.
+  [LICENSE_NOTICE.md](../LICENSE_NOTICE.md) still leaves the intended scope
+  of that license, given patent-pending work, as an owner decision.
+
+Fifteen E001 text files match the frozen manifest in the working tree and
+differ from the Git blobs only by CRLF versus LF. `.gitattributes` marks
+`e001_handoff/` and `e002_coupler/` as non-normalized so a checkout keeps
+the sealed bytes. Those files need to be committed as their working-tree
+bytes; the manifests were not edited and the expected hashes were not
+weakened. See [PUBLIC_RELEASE_COMPLETION.md](PUBLIC_RELEASE_COMPLETION.md).
+
+The sections below are the earlier inspection. They are retained as
+provenance. Where they say observations are missing or that publication
+metadata is pending, the current status above replaces them.
+
+## Earlier release audit status
+
+**Earlier status: not ready for a complete public reproduction claim,
+because the LOCKED observation files had not yet been restored.**
+
+The companion layer was implemented. Scientific evidence files, their names,
+and the existing LICENSE and paper PDF were preserved. This is a repository
+preparation audit, not an independent scientific audit.
 
 ## Initial repository inspection
+
+This list describes the checkout at the earlier audit, before the LOCKED
+observation files were restored. It is not the current file inventory.
 
 - Tracked files at entry: README.md, .gitignore, LICENSE.
 - Untracked material already present: LatentPort.pdf, e001_handoff/, e002_coupler/.
@@ -79,44 +117,38 @@ Original prospective hypotheses and E002 post-verdict ablations remain
 sealed historical E001/E002 material. No broader compiler or production
 runtime was added or accessed.
 
-## Numerical and publication blockers
+## Earlier numerical blockers, and what changed
 
-- [MISSING_ARTIFACTS.md](MISSING_ARTIFACTS.md) lists exact compact and raw
-  observation paths and expected hashes.
-- E001 primary means and CIs agree across sealed summaries, but its
-  per-document means, bootstrap CIs, improvement fractions, and “64/64”
-  claim cannot yet be independently recomputed.
-- E002 native/corrected/base means, correction effect and CI, remaining-gap
-  reduction and CI, factorial contrasts, and ablation effects recompute.
-  Continued-source/empty/wrong-donor observations remain absent.
-- NCR and TQR arithmetic matches the sealed means; this does not reproduce
-  missing baseline observations or their uncertainty.
-- Paper Figure 3 and candidate-selection Table 5 cannot be rebuilt from the
-  included scientific observations/selection records. Other generated figures
-  reproduce supported quantitative content in a new layout.
-- The default verifier exits 2 for missing required observations; CI uses this
-  strict mode. The available-only mode labels its limited scope.
-- LICENSE already contained Apache-2.0. It has not been replaced, narrowed,
-  or supplemented with a new patent grant. The owner must review the intended
-  licensing scope before releasing currently untracked material.
-- Permanent arXiv metadata is unresolved; see TODO_PUBLICATION_METADATA.md.
+At the earlier audit, [MISSING_ARTIFACTS.md](MISSING_ARTIFACTS.md) listed
+exact observation paths that were absent. Those headline files are now
+present and hash-matched. The current consequences are:
+
+- E001 per-document means, bootstrap CIs, improvement fractions, and the
+  64/64 result recompute from LOCKED raw evidence.
+- E002 continued-source, empty-target, and wrong-donor means and paired
+  control intervals recompute from LOCKED raw evidence.
+- Paper Figure 3 is regenerated as `figures/e001_paired_documents.*`.
+  The candidate grid is exported as `tables/e002_correction_candidates.csv`.
+- The default verifier is the strict check. A current passing run exits 0.
+- LICENSE remains Apache-2.0. It has not been replaced, narrowed, or
+  supplemented with a new patent grant. The owner still needs to review
+  the intended licensing scope. See the current status above.
+- arXiv metadata is recorded in [PUBLICATION.md](PUBLICATION.md).
 
 ## Final paper-claim checklist
 
-Here “aggregate agreement” is explicitly weaker than an observation-level pass.
+Current checklist. Observation-level checks use the included LOCKED raw files.
 
 - [x] E001 reported means match included sealed aggregates.
 - [x] E001 reported CIs match included sealed result versions.
 - [x] E001 wrong-donor point and reported CI match sealed artifacts.
-- [ ] E001 observed means/CIs and wrong-donor effect independently reproduced:
-  blocked by missing document observations.
+- [x] E001 observed means/CIs and wrong-donor effect independently reproduced.
 - [x] E002 base, corrected, and native means recomputed.
 - [x] E002 corrected-vs-base effect and CI recomputed.
-- [x] E002 corrected-vs-continued-4B point agrees with sealed means.
-- [ ] E002 continued-4B and wrong-donor paired CIs independently reproduced:
-  blocked by missing baseline/control observations.
-- [x] NCR arithmetic recomputes correctly from the available/sealed means.
-- [x] TQR arithmetic recomputes correctly from the available/sealed means.
+- [x] E002 corrected-vs-continued-4B point and paired CI recomputed.
+- [x] E002 continued-4B and wrong-donor paired CIs independently reproduced.
+- [x] NCR arithmetic recomputes correctly from the included observations.
+- [x] TQR arithmetic recomputes correctly from the included observations.
 - [x] Failed stronger gates remain visible.
 - [x] No free-generation claim.
 - [x] No production-speed claim.
