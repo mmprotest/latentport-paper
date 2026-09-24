@@ -22,12 +22,14 @@ Two limits remain:
   [LICENSE_NOTICE.md](../LICENSE_NOTICE.md) still leaves the intended scope
   of that license, given patent-pending work, as an owner decision.
 
-Fifteen E001 text files match the frozen manifest in the working tree and
-differ from the Git blobs only by CRLF versus LF. `.gitattributes` marks
-`e001_handoff/` and `e002_coupler/` as non-normalized so a checkout keeps
-the sealed bytes. Those files need to be committed as their working-tree
-bytes; the manifests were not edited and the expected hashes were not
-weakened. See [PUBLIC_RELEASE_COMPLETION.md](PUBLIC_RELEASE_COMPLETION.md).
+**Resolved: newline-sensitive hashes.** Fifteen E001 evidence files had
+differed from their frozen hashes only because Git had stored LF where the
+sealed bytes used CRLF. Those files were restored to their sealed byte
+representation and committed with normalization safeguards. `.gitattributes`
+marks `e001_handoff/` and `e002_coupler/` as non-normalized so a later
+checkout does not rewrite them. The manifests were not edited, and the
+expected hashes were not weakened. Frozen hashes now verify successfully
+in CI. See [PUBLIC_RELEASE_COMPLETION.md](PUBLIC_RELEASE_COMPLETION.md).
 
 The sections below are the earlier inspection. They are retained as
 provenance. Where they say observations are missing or that publication

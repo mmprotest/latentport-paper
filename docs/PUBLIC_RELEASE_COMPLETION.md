@@ -7,7 +7,11 @@ arXiv: [2609.25053](https://arxiv.org/abs/2609.25053).
 Hugging Face: [papers/2609.25053](https://huggingface.co/papers/2609.25053).
 Repository: [github.com/mmprotest/latentport-paper](https://github.com/mmprotest/latentport-paper).
 
-No commit was created.
+The public-release fixes were committed and pushed to `main`. Verified history:
+
+- `90cf1d62f6363c909383898f448d6da0248979d5` — Changes
+- `ab1507d943e5163b4f20c7e1dbd523f1a5da1c9e` — Finalize public release metadata
+- `5654368f23923ed0ae8d2ebef1569df93c29a20f` — Record green CI for release metadata
 
 ## Changes made
 
@@ -25,7 +29,7 @@ the checkout that is actually here.
 - `derived/`, `tables/`, and the affected files in `figures/` — regenerated from the frozen evidence.
 - `.gitattributes` — `e001_handoff/` and `e002_coupler/` are marked non-normalized so Git does not rewrite sealed newlines.
 
-Fifteen E001 files already matched the frozen manifest in the working tree and differed from the Git blobs only by CRLF versus LF. Their bytes were not rewritten. They were staged with `git add --renormalize` so the index stores the sealed CRLF bytes. Staged blob SHA-256 matches the manifest for every one of them. `git diff --cached --ignore-cr-at-eol` shows no scientific edit in those files. `.gitattributes` is staged with them. Documentation and regenerated outputs are unstaged. A release commit has to include both groups. Until that commit, GitHub Actions still checks out the old LF blobs.
+**Resolved.** Fifteen E001 files matched the frozen manifest only with their original CRLF bytes. An earlier Git blob had stored LF, which would fail hash checks on checkout. The sealed bytes were committed, and `.gitattributes` marks `e001_handoff/` and `e002_coupler/` as non-normalized so Git does not rewrite them. The manifests were not edited. Frozen hashes verify in CI. The file list below is the set that had that newline-only difference.
 
 The fifteen files are:
 
@@ -147,6 +151,6 @@ Verification after the metadata edits, using `.venv` (Python 3.11):
 
 Those reruns did not change `derived/`, `tables/`, or `figures/`.
 
-Latest workflow: `Verify paper artifacts` on `ab1507d` (`Finalize public release metadata`) succeeded (run `35963186395`). The prior run on `90cf1d6` had also succeeded (run `35962385782`).
+The latest `Verify paper artifacts` workflow on `main` completed successfully. The latest checked run before this documentation commit was `35963248994` on `5654368f23923ed0ae8d2ebef1569df93c29a20f` (`Record green CI for release metadata`).
 
 License/patent scope remains a human-owner decision and was not changed.
