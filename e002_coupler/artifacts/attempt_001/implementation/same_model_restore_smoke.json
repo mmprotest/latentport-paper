@@ -1,0 +1,30 @@
+{
+  "behavior_kl": 0.049824539572000504,
+  "behavior_kl_finite": true,
+  "correction_parameters": 413696,
+  "differentiable_install_exact": true,
+  "source_same_model_restore": {
+    "logits_equal": true,
+    "maximum_absolute_logit_difference": 0.0,
+    "prefix_tokens": 256,
+    "repository": "Qwen/Qwen3.5-4B-Base",
+    "revision": "1001bb4d826a52d1f399e183466143f4da7b741b",
+    "state_checksum": "766d6ce8d809825efa935eadcaada6e254bc55b1cf8e4aa78b931dc1b7ddd46d",
+    "top1_agreement": 1.0
+  },
+  "status": "PASS",
+  "target_historical_prefix_tokens_in_handoff": 0,
+  "target_same_model_restore": {
+    "logits_equal": true,
+    "maximum_absolute_logit_difference": 0.0,
+    "prefix_tokens": 256,
+    "repository": "Qwen/Qwen3.5-9B-Base",
+    "revision": "68c46c4b3498877f3ef123c856ecfde50c39f404",
+    "state_checksum": "e5365d63d94d1368a2b7f79ce082633ffa23bf70322eb02e2ef9828d6b6a25d7",
+    "top1_agreement": 1.0
+  },
+  "target_trainable_parameters": 0,
+  "zero_correction_exact": true,
+  "zero_initialization_gradient_finite_nonzero": true,
+  "zero_initialization_gradient_norm": 0.7936131954193115
+}

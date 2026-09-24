@@ -1,0 +1,11 @@
+{
+  "canonical_4k_verdict": "FULL_STATE_HANDOFF",
+  "canonical_verdict": "FULL_STATE_HANDOFF",
+  "four_k_verdict_sha256": "8bef6e4ed141c22dc3be995b8de193edc02ab9cfdcb07fb035dea8534f0879a5",
+  "freeze_state": "FINAL_CANONICAL_VERDICT_FROZEN_BEFORE_POSTVERDICT_ABLATIONS",
+  "long_pass": null,
+  "long_result_sha256": null,
+  "long_test_run": false,
+  "next_hypothesis": "H3: The remaining fidelity gap is dominated by a small subset of layers/components identified by E002 post-verdict ablations, and correcting only those components can preserve handoff quality at lower translation cost.",
+  "post_verdict_ablations_started": false
+}

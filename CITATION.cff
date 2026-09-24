@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying paper. Permanent publication metadata is pending."
+type: software
+title: "LatentPort: Beyond KV Cache - Cross-Model Transfer of Recurrent Memory in Hybrid Language Models"
+authors:
+  - given-names: "Simon P."
+    family-names: "Villani"
+repository-code: "https://github.com/mmprotest/latentport-paper"
+preferred-citation:
+  type: article
+  title: "LatentPort: Beyond KV Cache - Cross-Model Transfer of Recurrent Memory in Hybrid Language Models"
+  authors:
+    - given-names: "Simon P."
+      family-names: "Villani"
+  year: 2026
+  url: "https://github.com/mmprotest/latentport-paper/blob/main/LatentPort.pdf"

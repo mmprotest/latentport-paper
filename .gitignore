@@ -216,3 +216,16 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Public companion: local tooling and large tensor artifacts.
+.public-audit/
+.DS_Store
+Thumbs.db
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.npy
+*.npz
+# No NPY/NPZ observations are present. Revisit if small public evidence arrives.

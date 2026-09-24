@@ -1,0 +1,23 @@
+{
+  "completed_at_utc": "2026-08-31T09:54:22.421798+00:00",
+  "conditions": [
+    "NATIVE_9B",
+    "SOURCE_4B",
+    "EMPTY_9B",
+    "KV_ONLY",
+    "KV_GDN_DIRECT",
+    "FULL_TRANSLATED",
+    "FULL_SHUFFLED"
+  ],
+  "documents": 64,
+  "frozen_manifest_sha256": "69bcca1bea1ecce2cc5c7c9728581aeca8ed9abf56028c2cd9c2fd7498efb0c9",
+  "locked_execution_ordinal": 1,
+  "raw_evidence": "locked/raw_evidence.jsonl",
+  "raw_evidence_sha256": "1639038217b9bb376de33be57ab624e083a093a45dc5a5f8749b565247c9e546",
+  "source_pass_sha256": "aa8fbe0a6266b8731f4cd92e689759511db2f6baa98de22c8ebac33378f2eb4d",
+  "started_at_utc": "2026-08-31T09:46:10.243471+00:00",
+  "status": "LOCKED_COMPLETE",
+  "translation_pass_sha256": "919f2f87a9d3aff719a9f483cf2fac440a6419ae9d34d9a34851c6a67c3af0d3",
+  "translator_hash": "4a2c3c9236f0c9235ef06159b11687f8ac3225360f812cf2dd63e3237f181341",
+  "wall_seconds": 491.6171269000042
+}

@@ -1,0 +1,589 @@
+{
+  "cached_k_policy": "invert exact BF16-rounded source RoPE, fit in de-rotated space, apply exact target BF16-rounded RoPE",
+  "component": "full_attention_kv",
+  "fit_samples_per_map": 8192,
+  "layer_head_role_maps": [
+    {
+      "condition_number": 939.0289306640625,
+      "kv_head": 0,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 3,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.35144099593162537
+    },
+    {
+      "condition_number": 1205.3150634765625,
+      "kv_head": 1,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 3,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.4478147029876709
+    },
+    {
+      "condition_number": 1059.9434814453125,
+      "kv_head": 2,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 3,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.4629759192466736
+    },
+    {
+      "condition_number": 646.5393676757812,
+      "kv_head": 3,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 3,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.41184622049331665
+    },
+    {
+      "condition_number": 821.51953125,
+      "kv_head": 0,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 7,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.36083465814590454
+    },
+    {
+      "condition_number": 700.9566040039062,
+      "kv_head": 1,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 7,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.38727080821990967
+    },
+    {
+      "condition_number": 744.7448120117188,
+      "kv_head": 2,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 7,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.3970590829849243
+    },
+    {
+      "condition_number": 1018.9691162109375,
+      "kv_head": 3,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 7,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.3929547965526581
+    },
+    {
+      "condition_number": 1594.01806640625,
+      "kv_head": 0,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 11,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.4048405885696411
+    },
+    {
+      "condition_number": 1709.238037109375,
+      "kv_head": 1,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 11,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.40148472785949707
+    },
+    {
+      "condition_number": 1106.115234375,
+      "kv_head": 2,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 11,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.3827120065689087
+    },
+    {
+      "condition_number": 1515.9478759765625,
+      "kv_head": 3,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 11,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.4001550078392029
+    },
+    {
+      "condition_number": 1721.147216796875,
+      "kv_head": 0,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 15,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.39345240592956543
+    },
+    {
+      "condition_number": 1677.54638671875,
+      "kv_head": 1,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 15,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.3591664135456085
+    },
+    {
+      "condition_number": 1741.8555908203125,
+      "kv_head": 2,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 15,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.4266067147254944
+    },
+    {
+      "condition_number": 1226.3719482421875,
+      "kv_head": 3,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 15,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.39042365550994873
+    },
+    {
+      "condition_number": 1975.824951171875,
+      "kv_head": 0,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 19,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.4155331254005432
+    },
+    {
+      "condition_number": 1353.794189453125,
+      "kv_head": 1,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 19,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.35483965277671814
+    },
+    {
+      "condition_number": 1822.833984375,
+      "kv_head": 2,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 19,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.35140353441238403
+    },
+    {
+      "condition_number": 1241.072509765625,
+      "kv_head": 3,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 19,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.3540606200695038
+    },
+    {
+      "condition_number": 617.4331665039062,
+      "kv_head": 0,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 23,
+      "normalization": "per_feature_zscore",
+      "role": "K",
+      "validation_normalized_l2": 0.3493560552597046
+    },
+    {
+      "condition_number": 1565.301513671875,
+      "kv_head": 1,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 23,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.3882232904434204
+    },
+    {
+      "condition_number": 379.8498840332031,
+      "kv_head": 2,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 23,
+      "normalization": "per_feature_zscore",
+      "role": "K",
+      "validation_normalized_l2": 0.4177173972129822
+    },
+    {
+      "condition_number": 1262.033447265625,
+      "kv_head": 3,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 23,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.3379325866699219
+    },
+    {
+      "condition_number": 1917.9410400390625,
+      "kv_head": 0,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 27,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.35326215624809265
+    },
+    {
+      "condition_number": 1538.8228759765625,
+      "kv_head": 1,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 27,
+      "normalization": "per_feature_zscore",
+      "role": "K",
+      "validation_normalized_l2": 0.3294623792171478
+    },
+    {
+      "condition_number": 2385.907470703125,
+      "kv_head": 2,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 27,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.3441633880138397
+    },
+    {
+      "condition_number": 1322.1453857421875,
+      "kv_head": 3,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 27,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.38392162322998047
+    },
+    {
+      "condition_number": 1861.2381591796875,
+      "kv_head": 0,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 31,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.358650803565979
+    },
+    {
+      "condition_number": 1670.69775390625,
+      "kv_head": 1,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 31,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.4009198546409607
+    },
+    {
+      "condition_number": 1430.5048828125,
+      "kv_head": 2,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 31,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.40686729550361633
+    },
+    {
+      "condition_number": 1427.815185546875,
+      "kv_head": 3,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 31,
+      "normalization": "center_only",
+      "role": "K",
+      "validation_normalized_l2": 0.37351250648498535
+    },
+    {
+      "condition_number": 100.61151885986328,
+      "kv_head": 0,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 3,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.5914415121078491
+    },
+    {
+      "condition_number": 296.54779052734375,
+      "kv_head": 1,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 3,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.7678574323654175
+    },
+    {
+      "condition_number": 432.0713806152344,
+      "kv_head": 2,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 3,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.6660118103027344
+    },
+    {
+      "condition_number": 331.7661437988281,
+      "kv_head": 3,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 3,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.45048367977142334
+    },
+    {
+      "condition_number": 806.0574951171875,
+      "kv_head": 0,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 7,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.47160235047340393
+    },
+    {
+      "condition_number": 896.16650390625,
+      "kv_head": 1,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 7,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.41077178716659546
+    },
+    {
+      "condition_number": 1224.698486328125,
+      "kv_head": 2,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 7,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.42687445878982544
+    },
+    {
+      "condition_number": 281.2227783203125,
+      "kv_head": 3,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 7,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.6511368751525879
+    },
+    {
+      "condition_number": 1005.3353881835938,
+      "kv_head": 0,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 11,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.5296449065208435
+    },
+    {
+      "condition_number": 792.136474609375,
+      "kv_head": 1,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 11,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.5607023239135742
+    },
+    {
+      "condition_number": 1647.8726806640625,
+      "kv_head": 2,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 11,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.40913522243499756
+    },
+    {
+      "condition_number": 1073.3978271484375,
+      "kv_head": 3,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 11,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.5132858753204346
+    },
+    {
+      "condition_number": 1202.864013671875,
+      "kv_head": 0,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 15,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.5369377136230469
+    },
+    {
+      "condition_number": 701.8226928710938,
+      "kv_head": 1,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 15,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.5063573122024536
+    },
+    {
+      "condition_number": 1511.8582763671875,
+      "kv_head": 2,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 15,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.5380496978759766
+    },
+    {
+      "condition_number": 1175.1494140625,
+      "kv_head": 3,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 15,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.42069828510284424
+    },
+    {
+      "condition_number": 1849.6478271484375,
+      "kv_head": 0,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 19,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.5426949858665466
+    },
+    {
+      "condition_number": 390.65625,
+      "kv_head": 1,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 19,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.43507254123687744
+    },
+    {
+      "condition_number": 1238.1138916015625,
+      "kv_head": 2,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 19,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.5237691402435303
+    },
+    {
+      "condition_number": 3331.01513671875,
+      "kv_head": 3,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 19,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.39029619097709656
+    },
+    {
+      "condition_number": 277.55517578125,
+      "kv_head": 0,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 23,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.5882362127304077
+    },
+    {
+      "condition_number": 20.049867630004883,
+      "kv_head": 1,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 23,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.6942795515060425
+    },
+    {
+      "condition_number": 331.75299072265625,
+      "kv_head": 2,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 23,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.4369546175003052
+    },
+    {
+      "condition_number": 1143.3404541015625,
+      "kv_head": 3,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 23,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.4354565143585205
+    },
+    {
+      "condition_number": 1073.1832275390625,
+      "kv_head": 0,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 27,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.3938753008842468
+    },
+    {
+      "condition_number": 66.8440933227539,
+      "kv_head": 1,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 27,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.25427693128585815
+    },
+    {
+      "condition_number": 259.97698974609375,
+      "kv_head": 2,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 27,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.4616955518722534
+    },
+    {
+      "condition_number": 302.9851379394531,
+      "kv_head": 3,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 27,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.3868939280509949
+    },
+    {
+      "condition_number": 1142.4271240234375,
+      "kv_head": 0,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 31,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.25283345580101013
+    },
+    {
+      "condition_number": 379.7231140136719,
+      "kv_head": 1,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 31,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.19021685421466827
+    },
+    {
+      "condition_number": 339.609619140625,
+      "kv_head": 2,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 31,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.27800804376602173
+    },
+    {
+      "condition_number": 407.1877136230469,
+      "kv_head": 3,
+      "lambda_relative": 0.009999999776482582,
+      "language_layer": 31,
+      "normalization": "center_only",
+      "role": "V",
+      "validation_normalized_l2": 0.24329665303230286
+    }
+  ],
+  "parameter_count_weights": 4194304,
+  "stored_numeric_values": 4260096,
+  "tensor_bytes": 17042160,
+  "tensor_file": "translators/frozen/kv_translator.safetensors",
+  "tensor_file_sha256": "d4b11e27da1ca504dd0ab3188e31587560baf33a4b0fc3faf811833f8998b257",
+  "validation_samples_per_map": 2048
+}

@@ -1,0 +1,9 @@
+{
+  "documents": 32,
+  "e001_locked": false,
+  "path": "experiments/latentport/e001_handoff/data/validation/manifest.jsonl",
+  "prefix_tokens": 1024,
+  "sha256": "0f536d6263f12cea92840f21ab0686b59d73260fcdebd1ee6e49a0f37e329da3",
+  "source_experiment": "LATENTPORT_E001_HANDOFF",
+  "source_split": "VALIDATION"
+}

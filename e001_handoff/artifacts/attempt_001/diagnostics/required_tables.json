@@ -1,0 +1,214 @@
+{
+  "architecture_correspondence": [
+    {
+      "4B": 32,
+      "9B": 32,
+      "canonical_action": "map same index",
+      "component": "language layers",
+      "correspondence": "identity"
+    },
+    {
+      "4B": "24; [32,128,128]",
+      "9B": "24; [32,128,128]",
+      "canonical_action": "bilinear per layer/head",
+      "component": "Gated DeltaNet",
+      "correspondence": "exact geometry"
+    },
+    {
+      "4B": "[8192,4]",
+      "9B": "[8192,4]",
+      "canonical_action": "ridge per packed component/head",
+      "component": "GDN convolution",
+      "correspondence": "exact packed geometry"
+    },
+    {
+      "4B": "8; 4x256",
+      "9B": "8; 4x256",
+      "canonical_action": "de-rotated ridge per layer/head/role",
+      "component": "full-attention KV",
+      "correspondence": "exact geometry"
+    }
+  ],
+  "h1_comparison": {
+    "FULL_TRANSLATED_delta_nll": 0.2070317566394806,
+    "KV_ONLY_delta_nll": 0.9543548207730055,
+    "bootstrap_ci": [
+      0.6920502561610192,
+      0.8046689136885107
+    ],
+    "delta": 0.7473230641335249
+  },
+  "locked_fidelity": [
+    {
+      "condition": "NATIVE_9B",
+      "mean_delta_nll": 0.0,
+      "mean_js_to_native": 0.0,
+      "mean_nll": 2.1609158758074045,
+      "mean_top1_agreement_to_native": 1.0,
+      "mean_top5_overlap_to_native": 1.0,
+      "median_delta_nll": 0.0,
+      "median_nll": 2.1812363862991333
+    },
+    {
+      "condition": "SOURCE_4B",
+      "mean_delta_nll": 0.14649570547044277,
+      "mean_js_to_native": null,
+      "mean_nll": 2.3074115812778473,
+      "mean_top1_agreement_to_native": null,
+      "mean_top5_overlap_to_native": null,
+      "median_delta_nll": 0.14076948165893555,
+      "median_nll": 2.295464515686035
+    },
+    {
+      "condition": "EMPTY_9B",
+      "mean_delta_nll": 1.0847376938909292,
+      "mean_js_to_native": 0.17196225363295525,
+      "mean_nll": 3.2456535696983337,
+      "mean_top1_agreement_to_native": 0.581298828125,
+      "mean_top5_overlap_to_native": 0.59287109375,
+      "median_delta_nll": 1.0595117807388306,
+      "median_nll": 3.273315191268921
+    },
+    {
+      "condition": "KV_ONLY",
+      "mean_delta_nll": 0.9543548207730055,
+      "mean_js_to_native": 0.1578690615715459,
+      "mean_nll": 3.11527069658041,
+      "mean_top1_agreement_to_native": 0.60009765625,
+      "mean_top5_overlap_to_native": 0.610400390625,
+      "median_delta_nll": 0.9163877964019775,
+      "median_nll": 3.1198182106018066
+    },
+    {
+      "condition": "KV_GDN_DIRECT",
+      "mean_delta_nll": 0.13039816170930862,
+      "mean_js_to_native": 0.03198323553078808,
+      "mean_nll": 2.291314037516713,
+      "mean_top1_agreement_to_native": 0.8212890625,
+      "mean_top5_overlap_to_native": 0.8077148437499997,
+      "median_delta_nll": 0.12703663110733032,
+      "median_nll": 2.2952280044555664
+    },
+    {
+      "condition": "FULL_TRANSLATED",
+      "mean_delta_nll": 0.2070317566394806,
+      "mean_js_to_native": 0.04675711978052277,
+      "mean_nll": 2.367947632446885,
+      "mean_top1_agreement_to_native": 0.783203125,
+      "mean_top5_overlap_to_native": 0.7805664062499997,
+      "median_delta_nll": 0.1949862241744995,
+      "median_nll": 2.378187656402588
+    },
+    {
+      "condition": "FULL_SHUFFLED",
+      "mean_delta_nll": 1.1552652101963758,
+      "mean_js_to_native": 0.17923096707090735,
+      "mean_nll": 3.3161810860037804,
+      "mean_top1_agreement_to_native": 0.5556640625,
+      "mean_top5_overlap_to_native": 0.579541015625,
+      "median_delta_nll": 1.1351306438446045,
+      "median_nll": 3.271909236907959
+    }
+  ],
+  "same_model_restore": [
+    {
+      "contexts": 16,
+      "max_abs_diff": 0.0,
+      "min_logit_cosine": 0.9999998807907104,
+      "model": "4B",
+      "pass": true,
+      "top1_agreement": 1.0
+    },
+    {
+      "contexts": 16,
+      "max_abs_diff": 0.0,
+      "min_logit_cosine": 0.9999998807907104,
+      "model": "9B",
+      "pass": true,
+      "top1_agreement": 1.0
+    }
+  ],
+  "target_quality_retention": {
+    "delta_nll": 0.2070317566394806,
+    "pass": false,
+    "pass_threshold": "TQR >= 0.75 and DeltaNLL <= 0.20",
+    "split": "LOCKED_4K",
+    "tqr": -0.4132274797724475
+  },
+  "timing": {
+    "bridge_ms": {
+      "mean_ms": 38.63735311824712,
+      "median_ms": 38.441000040620565,
+      "p95_ms": 40.49311993876472
+    },
+    "gdn_convolution_translation_ms": {
+      "mean_ms": 5.518757836398436,
+      "median_ms": 5.309699568897486,
+      "p95_ms": 5.76549565885216
+    },
+    "gdn_recurrent_translation_ms": {
+      "mean_ms": 3.4795373831002507,
+      "median_ms": 3.3289993880316615,
+      "p95_ms": 3.7285747122950847
+    },
+    "host_device_copy_ms": {
+      "mean_ms": 77.32845160717261,
+      "median_ms": 76.58555032685399,
+      "p95_ms": 82.02601398807018
+    },
+    "kv_translation_ms": {
+      "mean_ms": 22.58137815442751,
+      "median_ms": 22.097399807535112,
+      "p95_ms": 23.865305352956053
+    },
+    "native_9b_prefill_wall_ms": {
+      "mean_ms": 885.205754704657,
+      "median_ms": 885.0651498651132,
+      "p95_ms": 898.1028900132515
+    },
+    "prototype_source_plus_translation_install_bridge_ms": {
+      "mean_ms": 853.5891452593205
+    },
+    "source_4b_prefill_wall_ms": {
+      "mean_ms": 662.5758781337936,
+      "median_ms": 654.9519000109285,
+      "p95_ms": 673.3648801688105
+    },
+    "source_state_extraction_ms": {
+      "mean_ms": 21.727445287979208,
+      "median_ms": 20.84674988873303,
+      "p95_ms": 22.65484998933971
+    },
+    "state_install_ms": {
+      "mean_ms": 21.740343738201773,
+      "median_ms": 22.001249948516488,
+      "p95_ms": 23.76651499653235
+    },
+    "translation_budget_for_win_ms": {
+      "mean_ms": 222.62987657086342
+    }
+  },
+  "translator_inventory": [
+    {
+      "component": "kv_translator",
+      "fit_samples": 8192,
+      "granularity": "layer / KV head / K or V",
+      "parameters": 4194304,
+      "validation_rule": "minimum frozen validation normalized error over registered ridge/normalization grid"
+    },
+    {
+      "component": "gdn_recurrent_translator",
+      "fit_samples": 1024,
+      "granularity": "GDN layer / value head",
+      "parameters": 25165824,
+      "validation_rule": "minimum frozen validation normalized error over registered ridge/normalization grid"
+    },
+    {
+      "component": "gdn_convolution_translator",
+      "fit_samples": 4096,
+      "granularity": "GDN layer / packed component / head",
+      "parameters": 25165824,
+      "validation_rule": "minimum frozen validation normalized error over registered ridge/normalization grid"
+    }
+  ]
+}

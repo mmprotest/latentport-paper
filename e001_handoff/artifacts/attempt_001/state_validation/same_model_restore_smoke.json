@@ -1,0 +1,1099 @@
+{
+  "all_finite": true,
+  "context_lengths": [
+    256,
+    512
+  ],
+  "contexts": 2,
+  "frozen_max_abs_tolerance": null,
+  "maximum_absolute_logit_difference": 0.0,
+  "minimum_any_position_logit_cosine": 0.9999998211860657,
+  "minimum_next_token_logit_cosine": 1.0,
+  "mode": "smoke",
+  "model_repository": "Qwen/Qwen3.5-4B-Base",
+  "model_revision": "1001bb4d826a52d1f399e183466143f4da7b741b",
+  "model_role": "source",
+  "pass": true,
+  "phase": "A_same_model_restore",
+  "raw_contexts": [
+    {
+      "all_finite": true,
+      "bridge_token_id": 19,
+      "captured_state_bytes": 60293120,
+      "captured_state_sha256": "4c2f89261844a6e90e81d92dda18ebd98ca3ef7ce428e8c41dc5ec6df056baf2",
+      "context_index": 0,
+      "continuation_token_ids": [
+        13,
+        561,
+        47201,
+        77434,
+        94892,
+        2002,
+        36055,
+        54517,
+        61785,
+        17173,
+        12489,
+        9705,
+        70676,
+        728,
+        5662,
+        78596,
+        25659,
+        90387,
+        49433,
+        14367,
+        8028,
+        43299,
+        220,
+        862,
+        4471,
+        668,
+        358,
+        50414,
+        263,
+        374,
+        5855,
+        1110,
+        92926,
+        81,
+        65326,
+        13759,
+        72730,
+        9197,
+        13,
+        6983,
+        47193,
+        21254,
+        369,
+        69892,
+        321,
+        6513,
+        1132,
+        310,
+        9856,
+        6297,
+        32866,
+        13,
+        198,
+        35629,
+        10206,
+        4129,
+        220,
+        15,
+        11,
+        9933,
+        220,
+        20,
+        13,
+        561
+      ],
+      "deep_clone_no_shared_storage": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "minimum_logit_cosine": 0.9999998211860657,
+      "minimum_top5_overlap": 1.0,
+      "next_token": {
+        "cosine": 1.0,
+        "finite": true,
+        "max_abs_diff": 0.0,
+        "top1_agreement": true,
+        "topk_overlap": 1.0
+      },
+      "prefill_ms": 524.4252998381853,
+      "prefix_tokens": 256,
+      "restored_state_sha256_before_bridge": "4c2f89261844a6e90e81d92dda18ebd98ca3ef7ce428e8c41dc5ec6df056baf2",
+      "teacher_forced_64": [
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0000001192092896,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999998807907104,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.000000238418579,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0000001192092896,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999998807907104,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0000001192092896,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999998807907104,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999998807907104,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0000001192092896,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0000001192092896,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999998807907104,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999998807907104,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0000001192092896,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0000001192092896,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999998807907104,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999998211860657,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        }
+      ],
+      "token_stream_sha256": "85639310cb6c96dabf663733be7d639650af52b83df883fb739d8cbc245bc090",
+      "top1_agreement_rate": 1.0
+    },
+    {
+      "all_finite": true,
+      "bridge_token_id": 9705,
+      "captured_state_bytes": 68681728,
+      "captured_state_sha256": "099a8dfce84d19594a70cfa0a7e36caf2615890d9ad14f277937975067deeeab",
+      "context_index": 1,
+      "continuation_token_ids": [
+        70676,
+        728,
+        5662,
+        78596,
+        25659,
+        90387,
+        49433,
+        14367,
+        8028,
+        43299,
+        220,
+        862,
+        4471,
+        668,
+        358,
+        50414,
+        263,
+        374,
+        5855,
+        1110,
+        92926,
+        81,
+        65326,
+        13759,
+        72730,
+        9197,
+        94892,
+        2002,
+        36055,
+        54517,
+        13,
+        6983,
+        47193,
+        21254,
+        369,
+        69892,
+        321,
+        6513,
+        1132,
+        310,
+        9856,
+        6297,
+        32866,
+        13,
+        198,
+        35629,
+        10206,
+        4129,
+        220,
+        16,
+        11,
+        9933,
+        220,
+        24,
+        13,
+        561,
+        47201,
+        77434,
+        17173,
+        12489,
+        9705,
+        70676,
+        728,
+        5662
+      ],
+      "deep_clone_no_shared_storage": true,
+      "maximum_absolute_logit_difference": 0.0,
+      "minimum_logit_cosine": 0.9999998807907104,
+      "minimum_top5_overlap": 1.0,
+      "next_token": {
+        "cosine": 1.0,
+        "finite": true,
+        "max_abs_diff": 0.0,
+        "top1_agreement": true,
+        "topk_overlap": 1.0
+      },
+      "prefill_ms": 184.9161998834461,
+      "prefix_tokens": 512,
+      "restored_state_sha256_before_bridge": "099a8dfce84d19594a70cfa0a7e36caf2615890d9ad14f277937975067deeeab",
+      "teacher_forced_64": [
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0000001192092896,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999998807907104,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999998807907104,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0000001192092896,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0000001192092896,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.000000238418579,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0000001192092896,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.000000238418579,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.000000238418579,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0000001192092896,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999998807907104,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999998807907104,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0000001192092896,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999998807907104,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999998807907104,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0000001192092896,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0000001192092896,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0000001192092896,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999999403953552,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999998807907104,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 0.9999998807907104,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        },
+        {
+          "cosine": 1.0,
+          "finite": true,
+          "max_abs_diff": 0.0,
+          "top1_agreement": true,
+          "topk_overlap": 1.0
+        }
+      ],
+      "token_stream_sha256": "8931cbf4eefe658df480779c78c73a5ce0a0e76408fc7332afeef8e50497822f",
+      "top1_agreement_rate": 1.0
+    }
+  ],
+  "top1_agreement": 1.0
+}

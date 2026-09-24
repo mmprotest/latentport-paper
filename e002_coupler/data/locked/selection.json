@@ -1,0 +1,48 @@
+{
+  "locked": {
+    "document_ids_sha256": "9abc8912ac267d28ae8c56c10ee4976b0acb19830496387a061c4dc820e44a17",
+    "documents": 64,
+    "manifest": "data/locked/manifest.jsonl",
+    "manifest_sha256": "ac0b4db6065f5960e0d2bd7cf321f716fb16b9ae8026b12528c45f619398e524",
+    "split": "LOCKED",
+    "stored_tokens": 4352
+  },
+  "locked_audit": {
+    "candidate_rows": 100000,
+    "coarse_minimum": 3840,
+    "coarse_rows": 3769,
+    "corpus_sha256": "955ff462f3db09a52a4750e7a69901f89d64e48dfc936de0847c9f234f32b695",
+    "e001_exclusion_counts": {
+      "fit": 128,
+      "locked": 64,
+      "long": 16,
+      "validation": 32
+    },
+    "exact_eligible_after_exclusion": 3147,
+    "exact_unique_after_exclusion": 3147
+  },
+  "long": {
+    "document_ids_sha256": "a061d6662367462a74a987d3ab45939108f03de7b822557a970f248a5677ffa5",
+    "documents": 16,
+    "manifest": "data/long/manifest.jsonl",
+    "manifest_sha256": "7bbe94629ac8d2363c145e4d278e6c8a085486107ae9506ecaabc4a1b334bc2b",
+    "split": "LONG",
+    "stored_tokens": 16449
+  },
+  "long_audit": {
+    "candidate_rows": 100000,
+    "coarse_minimum": 15937,
+    "coarse_rows": 278,
+    "corpus_sha256": "955ff462f3db09a52a4750e7a69901f89d64e48dfc936de0847c9f234f32b695",
+    "e001_exclusion_counts": {
+      "fit": 128,
+      "locked": 64,
+      "long": 16,
+      "validation": 32
+    },
+    "exact_eligible_after_exclusion": 259,
+    "exact_unique_after_exclusion": 259
+  },
+  "overlap_count": 0,
+  "selection_uses_model_outputs": false
+}

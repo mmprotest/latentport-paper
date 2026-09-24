@@ -1,0 +1,7 @@
+{
+  "canonical_4k_verdict": "FULL_STATE_HANDOFF",
+  "freeze_state": "CANONICAL_4K_VERDICT_FROZEN_BEFORE_ABLATIONS",
+  "locked_metrics_sha256": "8a2b2aff4719534395c4d75aff1dc6a3703bf0f154ede361a02c301c048ad40a",
+  "long_unlocked": false,
+  "post_verdict_ablations_started": false
+}

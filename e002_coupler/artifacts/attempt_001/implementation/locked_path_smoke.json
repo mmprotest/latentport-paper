@@ -1,0 +1,52 @@
+{
+  "base_state": "TDD",
+  "canonical_locked_documents_accessed": 0,
+  "conditions": {
+    "BASE_STATE": {
+      "all_logits_finite": true,
+      "js_to_native": 0.02210870012640953,
+      "logits_shape": [
+        64,
+        248320
+      ],
+      "nll": 3.31148624420166
+    },
+    "JOINT_CORRECTED": {
+      "all_logits_finite": true,
+      "js_to_native": 0.02229459397494793,
+      "logits_shape": [
+        64,
+        248320
+      ],
+      "nll": 3.2979767322540283
+    }
+  },
+  "correction_hash": "e93a15a21b6eba37ec794d94c45780059a3653f9466c26db1b20960419260db3",
+  "repair_checkpoints": [
+    1,
+    4,
+    16,
+    64,
+    256
+  ],
+  "repair_recurrent_error": {
+    "BASE_STATE": {
+      "1": 0.611331682652235,
+      "16": 0.5347330023845037,
+      "256": 0.4653945453464985,
+      "4": 0.5694609309236208,
+      "64": 0.45599494129419327
+    },
+    "JOINT_CORRECTED": {
+      "1": 0.6118148987491926,
+      "16": 0.5349923099080721,
+      "256": 0.4662264126042525,
+      "4": 0.5702045088013014,
+      "64": 0.4569618031382561
+    }
+  },
+  "status": "PASS",
+  "target_historical_prefix_tokens_in_handoff": 0,
+  "target_weights_trainable": 0,
+  "training_side_document": "<urn:uuid:7a4d08dd-042b-4ad0-9f8e-687799b5ead3>"
+}

@@ -1,0 +1,14 @@
+{
+  "phase": "PRE_LOCKED_FINAL_GATE",
+  "command": "python -m pytest -q --junitxml artifacts/attempt_001/implementation/prelocked_tests.xml",
+  "tests": 41,
+  "passed": 41,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "wall_seconds_reported_by_pytest": 4.29,
+  "junit_xml": "artifacts/attempt_001/implementation/prelocked_tests.xml",
+  "junit_xml_sha256": "b8afe78f24dfa22babebec87a9900a763c9afa0d5dba4007c9594d4a43ae9519",
+  "locked_data_accessed": false,
+  "pass": true
+}

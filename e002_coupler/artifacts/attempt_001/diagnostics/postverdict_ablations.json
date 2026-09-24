@@ -1,0 +1,61 @@
+{
+  "ablations": {
+    "CONVOLUTION_CORRECTION_REMOVED": {
+      "impact_bootstrap_ci": [
+        -0.0003867528168484567,
+        0.0016848879633471362
+      ],
+      "mean_delta_nll": 0.07702551019610837,
+      "mean_impact_vs_joint_corrected": 0.0006581740453839302,
+      "median_impact_vs_joint_corrected": 0.0007801651954650879
+    },
+    "EARLY_THIRD_RECURRENT_REMOVED": {
+      "impact_bootstrap_ci": [
+        0.002872541011311114,
+        0.008594314171932637
+      ],
+      "mean_delta_nll": 0.08203379512997344,
+      "mean_impact_vs_joint_corrected": 0.0056664589792490005,
+      "median_impact_vs_joint_corrected": 0.0043489933013916016
+    },
+    "KV_CORRECTION_REMOVED": {
+      "impact_bootstrap_ci": [
+        0.004475467186421157,
+        0.010284696938470004
+      ],
+      "mean_delta_nll": 0.08364787028403953,
+      "mean_impact_vs_joint_corrected": 0.007280534133315086,
+      "median_impact_vs_joint_corrected": 0.0062926411628723145
+    },
+    "LATE_THIRD_RECURRENT_REMOVED": {
+      "impact_bootstrap_ci": [
+        0.0001364402007311584,
+        0.0029251668369397518
+      ],
+      "mean_delta_nll": 0.07791235001059249,
+      "mean_impact_vs_joint_corrected": 0.0015450138598680496,
+      "median_impact_vs_joint_corrected": 0.001598954200744629
+    },
+    "MIDDLE_THIRD_RECURRENT_REMOVED": {
+      "impact_bootstrap_ci": [
+        0.006875375378876925,
+        0.013004580838605761
+      ],
+      "mean_delta_nll": 0.08625813928665593,
+      "mean_impact_vs_joint_corrected": 0.009890803135931492,
+      "median_impact_vs_joint_corrected": 0.009695947170257568
+    },
+    "RECURRENT_CORRECTION_REMOVED": {
+      "impact_bootstrap_ci": [
+        0.014068660861812533,
+        0.02401946694590151
+      ],
+      "mean_delta_nll": 0.0952869558823295,
+      "mean_impact_vs_joint_corrected": 0.018919619731605053,
+      "median_impact_vs_joint_corrected": 0.01918691396713257
+    }
+  },
+  "canonical_verdict_unchanged": "FULL_STATE_HANDOFF",
+  "documents": 64,
+  "used_for_e002_selection": false
+}

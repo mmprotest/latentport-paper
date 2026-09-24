@@ -1,0 +1,35 @@
+{
+  "canonical_verdict": "FULL_STATE_HANDOFF",
+  "checked_at_utc": "2026-09-01T08:29:03.217334+00:00",
+  "correction_hash": "e93a15a21b6eba37ec794d94c45780059a3653f9466c26db1b20960419260db3",
+  "e001_artifacts_unchanged": true,
+  "e001_reference_files_reverified": 18,
+  "executive_summary_present": true,
+  "experiment_id": "LATENTPORT_E002_COUPLER",
+  "final_artifact_manifest": {
+    "files": 2274,
+    "verified": true
+  },
+  "frozen_e002_files_verified": 79,
+  "long_execution_consistent": true,
+  "raw_evidence": {
+    "documents": 64,
+    "logit_files_present_and_sized": true,
+    "sha256": "a189c454a4f52a8ceb03ec09e0e109efa139ce01225a472c59a70148acd0c629",
+    "unique_document_ids": true
+  },
+  "report_present": true,
+  "required_figures": [
+    "base_vs_corrected_delta_nll.png",
+    "corrected_vs_shuffled.png",
+    "correction_magnitude_by_layer.png",
+    "factorial_condition_nll.png",
+    "factorial_interactions.png",
+    "native_context_recovery.png",
+    "source_vs_corrected.png",
+    "state_repair_to_256_tokens.png",
+    "timing_breakdown.png",
+    "verdict_summary.png"
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,5 @@
+# Artifact analysis only; no inference backend.
+# Fixed versions for numerical and figure reproducibility.
+numpy==2.2.6
+matplotlib==3.10.8
+PyYAML==6.0.3

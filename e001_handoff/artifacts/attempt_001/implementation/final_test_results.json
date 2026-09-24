@@ -1,0 +1,14 @@
+{
+  "phase": "FINAL_INTEGRITY_AUDIT",
+  "tests": 48,
+  "passed": 48,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "wall_seconds_reported_by_pytest": 6.17,
+  "junit_xml": "implementation/final_tests.xml",
+  "junit_xml_sha256": "d35b7a8a38c0a7972368524be081bbd06c9b0fb83fbb3f52bf47dc0724b4e37d",
+  "raw_evidence_documents_validated": 64,
+  "frozen_manifest_verified": true,
+  "pass": true
+}

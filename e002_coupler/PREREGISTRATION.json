@@ -1,0 +1,114 @@
+{
+  "experiment_id": "LATENTPORT_E002_COUPLER",
+  "protocol_version": "1.0.0",
+  "created_at": "2026-09-01T00:00:00+10:00",
+  "registration_state": "FROZEN_BEFORE_E002_RESULTS",
+  "primary_hypothesis": "H2: Cross-component coupling between translated KV and translated Gated DeltaNet state is the main remaining source of target-fidelity loss, and a jointly fitted low-rank correction can close the gap without a deep nonlinear translator.",
+  "models": {
+    "source": {"repository": "Qwen/Qwen3.5-4B-Base", "revision": "1001bb4d826a52d1f399e183466143f4da7b741b", "dtype": "bfloat16", "parameters": 4205751296},
+    "target": {"repository": "Qwen/Qwen3.5-9B-Base", "revision": "68c46c4b3498877f3ef123c856ecfde50c39f404", "dtype": "bfloat16", "parameters": 8953803264},
+    "tokenizer_repository": "Qwen/Qwen3.5-4B-Base",
+    "tokenizer_revision": "1001bb4d826a52d1f399e183466143f4da7b741b",
+    "tokenizer_json_sha256": "fe000e3ed39ed12b8d2481d527d44f93c65d37e87645d2dcc80d1bf9d50d2927"
+  },
+  "e001_prior": {
+    "canonical_verdict": "RECURRENT_STATE_TRANSLATABLE",
+    "locked_aggregate_use": "motivation_only",
+    "locked_document_data_forbidden": true
+  },
+  "seeds": {
+    "global": 2026090101,
+    "split_hash_salt": "latentport-e002-splits-v1",
+    "fixed_basis": 2026090102,
+    "bootstrap": 2026090103,
+    "shuffle_rotation": 1,
+    "same_model_restore": 2026090105,
+    "training": 2026090106
+  },
+  "corpus": {
+    "repository": "HuggingFaceFW/fineweb-edu",
+    "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+    "immutable_file": "sample/100BT/000_00000.parquet",
+    "file_sha256": "955ff462f3db09a52a4750e7a69901f89d64e48dfc936de0847c9f234f32b695",
+    "candidate_universe": "physical rows 0 through 99999 inclusive",
+    "coarse_filter": "source-reported token_count >= required exact-token threshold minus 512",
+    "exact_eligibility": "identical frozen Qwen tokenizer IDs meet the split token requirement",
+    "ordering": "SHA256(split_hash_salt || corpus_revision || immutable_file || physical_row_index || document_id)",
+    "exclude": ["E001 FIT document IDs/text hashes", "E001 VALIDATION document IDs/text hashes", "E001 LOCKED document IDs/text hashes", "E001 LONG document IDs/text hashes"]
+  },
+  "splits": {
+    "factorial_validation": {"documents": 32, "prefix_tokens": 4096, "bridge_tokens": 1, "primary_continuation_tokens": 64, "stored_tokens": 4161},
+    "correction_fit": {"documents": 128, "source": "E001 FIT", "prefix_tokens": 1024, "bridge_tokens": 1, "training_targets": 9},
+    "correction_validation": {"documents": 32, "source": "E001 VALIDATION", "prefix_tokens": 1024, "bridge_tokens": 1, "training_targets": 9},
+    "locked": {"documents": 64, "prefix_tokens": 4096, "bridge_tokens": 1, "primary_continuation_tokens": 64, "state_repair_tokens": 256, "stored_tokens": 4352},
+    "long": {"documents": 16, "prefix_tokens": 16384, "bridge_tokens": 1, "primary_continuation_tokens": 64, "stored_tokens": 16449, "conditional": true}
+  },
+  "factorial": {
+    "conditions": ["DDD", "DDT", "DTD", "DTT", "TDD", "TDT", "TTD", "TTT"],
+    "coding": {"D": -1, "T": 1},
+    "primary_selection_metric": "mean document-level DeltaNLL",
+    "tie_tolerance_nats": 0.01,
+    "tie_break": ["fewest translated components", "lexical condition order"],
+    "effects": "within-document orthogonal repeated-measures contrasts",
+    "interaction_materiality_nats": 0.02,
+    "directional_replication": "same sign on VALIDATION and LOCKED and absolute LOCKED interaction at least 0.02"
+  },
+  "correction": {
+    "rank_grid": [2, 4],
+    "independent_ranks": false,
+    "parameter_cap_exclusive": 2000000,
+    "recurrent": "per GDN layer, shared-across-heads trainable-zero/fixed-basis rank-r left and right residual",
+    "kv": "per attention layer and K/V role, trainable-zero/fixed-basis rank-r feature residual shared across heads and positions",
+    "convolution": "per GDN layer/channel scale residual plus bias shared across four convolution positions",
+    "fixed_basis_distribution": "seeded Gaussian QR with deterministic sign canonicalization",
+    "zero_initialization_exact": true,
+    "nonlinear_components": null
+  },
+  "training": {
+    "objective": "full-vocabulary mean token KL(P_native_9B || P_handoff)",
+    "positions": 9,
+    "continuation_schedule": "one differentiable target call over bridge plus first eight teacher inputs",
+    "identity_loss": "mean component squared Frobenius residual/base ratio",
+    "identity_lambda_grid": [0.0, 0.0001, 0.001, 0.01],
+    "optimizer": "AdamW",
+    "learning_rate_grid": [0.001],
+    "betas": [0.9, 0.95],
+    "epsilon": 1e-8,
+    "weight_decay": 0.0,
+    "batch_size": 1,
+    "gradient_accumulation": 8,
+    "gradient_clip_norm": 1.0,
+    "max_epochs": 3,
+    "early_stopping_patience": 1,
+    "early_stopping_min_delta": 1e-6,
+    "candidate_selection": "lowest mean validation behavioral KL; ties within 1e-6 choose lower rank, then larger identity lambda, then earlier epoch",
+    "source_document_order": "manifest order, no stochastic shuffling",
+    "target_weights_frozen": true,
+    "source_weights_frozen": true,
+    "target_historical_prefix_replay": 0
+  },
+  "evaluation": {
+    "primary_unit": "document",
+    "teacher_forced_tokens": 64,
+    "bootstrap_resamples": 10000,
+    "bootstrap_level": 0.95,
+    "metrics": ["NLL", "DeltaNLL", "NCR", "TQR", "RGR", "Jensen-Shannon", "top-1 agreement", "top-5 overlap", "entropy"],
+    "state_repair_checkpoints": [1, 4, 16, 64, 256],
+    "raw_logits_storage": "exact bfloat16 bit patterns in per-document uint16 NPY files"
+  },
+  "verdict": {
+    "direct_heavy": "at least two of K/R/C use D",
+    "material_correction": "paired bootstrap lower bound for BASE minus CORRECTED NLL is positive and RGR >= 0.25",
+    "source_advantage": "paired bootstrap upper bound for CORRECTED minus SOURCE NLL is negative",
+    "content_specificity": "paired bootstrap upper bound for CORRECTED minus SHUFFLED NLL is negative",
+    "ladder_order": ["LONG_CONTEXT_HANDOFF", "NEAR_NATIVE_HANDOFF", "FULL_STATE_HANDOFF", "JOINT_CORRECTION_WORKS", "IDENTITY_STATE_CONFIRMED", "COUPLING_HYPOTHESIS_REJECTED"],
+    "unassigned_guard": "raise rather than relabel poor performance as implementation failure"
+  },
+  "long_gate": {
+    "run_if": "4K verdict is NEAR_NATIVE_HANDOFF",
+    "retraining": false,
+    "recalibration": false
+  },
+  "forbidden": ["rank_above_4", "parameters_at_or_above_2000000", "MLP", "Transformer translator", "target historical prefix replay", "LOCKED tuning", "document dropping", "base change after LOCKED", "model change", "E001 LOCKED training data", "E003 execution"]
+}
+

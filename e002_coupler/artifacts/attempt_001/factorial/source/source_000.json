@@ -1,0 +1,12 @@
+{
+  "document_id": "<urn:uuid:7a4d08dd-042b-4ad0-9f8e-687799b5ead3>",
+  "prefix_tokens": 4096,
+  "source_prefill_ms": 1026.20869999987,
+  "split_index": 0,
+  "state": {
+    "bytes": 186144035,
+    "path": "C:\\Users\\Simon\\OneDrive\\Documents\\Python Scripts\\LatentPort\\experiments\\latentport\\e002_coupler\\artifacts\\attempt_001\\factorial\\states\\source\\source_000.pt",
+    "state_checksum": "d65d2752ecfa3e79cd3e7c54906dc3615212833352bb82b1be6817d1b4b905b5",
+    "state_tensor_bytes": 186122240
+  }
+}

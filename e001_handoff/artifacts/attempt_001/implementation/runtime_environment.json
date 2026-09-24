@@ -1,0 +1,21 @@
+{
+  "python": "3.11.9",
+  "python_bootstrap": "C:/Users/Simon/AppData/Local/Programs/Python/Python311/python.exe",
+  "environment": "experiments/latentport/e001_handoff/.venv",
+  "torch": "2.13.0+cu130",
+  "torch_cuda": "13.0",
+  "transformers": "5.16.1",
+  "datasets": "5.0.1",
+  "huggingface_hub": "1.29.0",
+  "nvidia_driver": "591.86",
+  "driver_cuda": "13.1",
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "gpu_compute_capability": [12, 0],
+  "gpu_vram_mib": 32607,
+  "bf16_supported": true,
+  "bf16_smoke_finite": true,
+  "canonical_dtype": "bfloat16",
+  "quantization": false,
+  "mtp": false,
+  "speculative_decoding": false
+}

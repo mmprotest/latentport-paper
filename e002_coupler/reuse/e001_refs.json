@@ -1,0 +1,28 @@
+{
+  "e001_root": "experiments/latentport/e001_handoff",
+  "canonical_verdict": "RECURRENT_STATE_TRANSLATABLE",
+  "frozen_manifest": {"path": "FROZEN_MANIFEST.json", "sha256": "69bcca1bea1ecce2cc5c7c9728581aeca8ed9abf56028c2cd9c2fd7498efb0c9"},
+  "final_artifact_manifest": {"path": "artifacts/attempt_001/FINAL_ARTIFACT_MANIFEST.json", "sha256": "a59fb16898d793b94a6339adb074d598e99140d68bb92e55f1d30b885019c1c3"},
+  "result": {"path": "artifacts/attempt_001/verdict/RESULT.json", "sha256": "7290f0f16aca291c00fb80d4f0c8b35d13a6f9baf86758e4fb15481923e5ca6a"},
+  "model_revisions": {"path": "artifacts/attempt_001/implementation/model_revisions.json", "sha256": "9f0c204327c01dde8abbb0aff588cce6fe3737c1a1921e4992c11f6c7dff8748"},
+  "source_schema": {"path": "artifacts/attempt_001/implementation/state_schema_source.json", "sha256": "09fbd7188f64ea546c1fa02439b0a4c2b7a0217db8dd68983d61bfcaac34619a"},
+  "target_schema": {"path": "artifacts/attempt_001/implementation/state_schema_target.json", "sha256": "65143cd05aebf940effae70689f63b92325d4056e9fdae00792788e1391f6161"},
+  "translators": {
+    "kv_metadata": {"path": "translators/frozen/kv_translator.json", "sha256": "fbbe13d9818f8933592aa432950b282a096a5a1c2f74d59860c8cf0bb8a5058b"},
+    "kv_tensors": {"path": "translators/frozen/kv_translator.safetensors", "sha256": "d4b11e27da1ca504dd0ab3188e31587560baf33a4b0fc3faf811833f8998b257"},
+    "gdn_metadata": {"path": "translators/frozen/gdn_recurrent_translator.json", "sha256": "5bfd7e27ce20be99c7fef9e0b94c47f5b243763faf1760f23ce2c21e30d328be"},
+    "gdn_tensors": {"path": "translators/frozen/gdn_recurrent_translator.safetensors", "sha256": "f5db76bfb3e32b3ae8950bfaa67259725d77860145779e7b527157a51e0f9892"},
+    "conv_metadata": {"path": "translators/frozen/gdn_convolution_translator.json", "sha256": "c1d81bcd442bb67937bf6e18c427edfe6ec6f9e3bace2eed1045d282d8366de3"},
+    "conv_tensors": {"path": "translators/frozen/gdn_convolution_translator.safetensors", "sha256": "2b580b1952f9835c9954850a4ea48ee986f1bb2cd0daca351a641e0c59e49a55"}
+  },
+  "source_training_states": {
+    "fit_collection": {"path": "artifacts/attempt_001/fit/paired_states/source_collection.json", "sha256": "7db48e604ce142be3b5287910a40e6ba0cd37eb7a7d12a3b2a5a718f98dc486e"},
+    "fit_recurrent": {"path": "artifacts/attempt_001/fit/paired_states/source_recurrent.npy", "sha256": "84e4064087c9f1d3d71545894d0a9889d138fb4f57c9487e3206db8473281537"},
+    "fit_convolution": {"path": "artifacts/attempt_001/fit/paired_states/source_convolution_bf16_u16.npy", "sha256": "b15817132e0245acf777f57e65187ef71d12ee57c86b439b57d98407866d41ec"},
+    "validation_collection": {"path": "artifacts/attempt_001/validation/paired_states/source_collection.json", "sha256": "54bcb14039861455a2223953cf71afcfa67c8105c7812f5376adb97b77b95ef2"},
+    "validation_recurrent": {"path": "artifacts/attempt_001/validation/paired_states/source_recurrent.npy", "sha256": "9c166d8c7260dbfbe3e67ac0cbc03a2b6699ecba810558e4fb7adbbe522f2c81"},
+    "validation_convolution": {"path": "artifacts/attempt_001/validation/paired_states/source_convolution_bf16_u16.npy", "sha256": "c4ee0afade9c43974c349bb6af53f94f591c9fe4d42ce6d56d642ea759d61947"}
+  },
+  "combined_translator_hash": "4a2c3c9236f0c9235ef06159b11687f8ac3225360f812cf2dd63e3237f181341"
+}
+

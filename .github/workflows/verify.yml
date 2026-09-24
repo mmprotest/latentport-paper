@@ -1,0 +1,36 @@
+name: Verify paper artifacts
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  artifact-statistics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install lightweight analysis dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Validate public metadata
+        run: python analysis/validate_public_metadata.py
+      - name: Extract sealed artifacts
+        id: extract
+        run: python analysis/extract_results.py
+      - name: Verify headline statistics
+        run: python analysis/verify_results.py
+      - name: Reproduce figures
+        if: always() && steps.extract.outcome == 'success'
+        run: python analysis/reproduce_figures.py
+      - name: Reproduce tables
+        if: always() && steps.extract.outcome == 'success'
+        run: python analysis/reproduce_tables.py
+      - name: Check derived data and tables for drift
+        if: always() && steps.extract.outcome == 'success'
+        run: git diff --exit-code -- derived tables

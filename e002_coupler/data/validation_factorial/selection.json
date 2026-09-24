@@ -1,0 +1,25 @@
+{
+  "audit": {
+    "candidate_rows": 100000,
+    "coarse_minimum": 3649,
+    "coarse_rows": 4028,
+    "corpus_sha256": "955ff462f3db09a52a4750e7a69901f89d64e48dfc936de0847c9f234f32b695",
+    "e001_exclusion_counts": {
+      "fit": 128,
+      "locked": 64,
+      "long": 16,
+      "validation": 32
+    },
+    "exact_eligible_after_exclusion": 3387,
+    "exact_unique_after_exclusion": 3387
+  },
+  "manifest": {
+    "document_ids_sha256": "87992535b0d6c9fcd7f427579f832dcfe2f528af914760c4fddc442190959f63",
+    "documents": 32,
+    "manifest": "data/validation_factorial/manifest.jsonl",
+    "manifest_sha256": "7c94d12f0e528d7c8206eb6780ca52d79ce16bd465e58bf344e95406975ce6f2",
+    "split": "VALIDATION_FACTORIAL",
+    "stored_tokens": 4161
+  },
+  "selection_uses_model_outputs": false
+}

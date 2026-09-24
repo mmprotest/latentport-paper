@@ -1,0 +1,14 @@
+{
+  "bridge_logit_comparison": {
+    "cosine": 0.9999610781669617,
+    "finite": true,
+    "max_abs_diff": 0.125,
+    "top1_agreement": true,
+    "topk_overlap": 1.0
+  },
+  "chunked_state_sha256": "4e36e8cb18f6151c10bcf3ca54f6cf4b141632d79271375aa07baf0acee4886c",
+  "document_id": "<urn:uuid:68d3de4c-6516-4722-b175-8399d3f16c9f>",
+  "one_shot_state_sha256": "d98348537174b212c5769dfcf691472efd55232f0678b4912764a6c14b09aae3",
+  "pass": false,
+  "state_bit_identical": false
+}

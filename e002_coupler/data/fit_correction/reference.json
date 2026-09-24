@@ -1,0 +1,9 @@
+{
+  "documents": 128,
+  "e001_locked": false,
+  "path": "experiments/latentport/e001_handoff/data/fit/manifest.jsonl",
+  "prefix_tokens": 1024,
+  "sha256": "aff342f57030a600aacb60a430a9215f530af9943b3b4cc62c5175b0ce985c40",
+  "source_experiment": "LATENTPORT_E001_HANDOFF",
+  "source_split": "FIT"
+}

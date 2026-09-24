@@ -1,0 +1,16 @@
+{
+  "canonical_verdict": "FULL_STATE_HANDOFF",
+  "charts": {
+    "base_vs_corrected_delta_nll.png": "Shows primary paired target-gap comparison with document bootstrap intervals.",
+    "corrected_vs_shuffled.png": "Tests content specificity against no-fixed-point donor rotation.",
+    "correction_magnitude_by_layer.png": "Shows relative residual magnitude by component and depth.",
+    "factorial_condition_nll.png": "Ranks all eight validation factorial cells and marks native 9B.",
+    "factorial_interactions.png": "Compares validation and LOCKED within-document factorial contrasts.",
+    "native_context_recovery.png": "Shows raw unclipped NCR for base, corrected, and shuffled state.",
+    "source_vs_corrected.png": "Shows whether switching beats continued source-model inference.",
+    "state_repair_to_256_tokens.png": "Shows recurrent error trajectories through 256 target tokens.",
+    "timing_breakdown.png": "Shows measured prototype latency stages without a production-speedup claim.",
+    "verdict_summary.png": "States the frozen verdict and its central quantitative evidence."
+  },
+  "generated_after_4k_verdict_freeze": true
+}

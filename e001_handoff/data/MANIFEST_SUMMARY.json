@@ -1,0 +1,75 @@
+{
+  "corpus_by_split": {
+    "fit": [
+      "HuggingFaceFW/fineweb-edu"
+    ],
+    "locked": [
+      "emozilla/pg19"
+    ],
+    "long": [
+      "emozilla/pg19"
+    ],
+    "validation": [
+      "HuggingFaceFW/fineweb-edu"
+    ]
+  },
+  "document_overlap_count": 0,
+  "exact_token_equality_verified_for_all_selected_documents": true,
+  "fineweb_candidate_audit": {
+    "candidate_rows": 20000,
+    "duplicates_removed": 0,
+    "eligible_rows": 4869,
+    "eligible_unique_documents": 4869
+  },
+  "manifest_version": "latentport-e001-data-v1",
+  "pg19_candidate_audit": {
+    "candidate_rows": 100,
+    "duplicates_removed": 0,
+    "eligible_locked": 99,
+    "eligible_long": 93,
+    "eligible_unique_documents": 100
+  },
+  "selection_uses_model_outputs": false,
+  "splits": {
+    "fit": {
+      "document_ids_sha256": "ce35df0f520dde3dba2885b85cee6c52900f1a80a46156d0bffc0d165ce30909",
+      "documents": 128,
+      "manifest": "data/fit/manifest.jsonl",
+      "manifest_sha256": "aff342f57030a600aacb60a430a9215f530af9943b3b4cc62c5175b0ce985c40",
+      "required_tokens_per_document": 1089,
+      "split": "FIT"
+    },
+    "locked": {
+      "document_ids_sha256": "9cf0eb642a4e6bcf1804d6e507810b096bda81e0c06e52b8c92daa6df2069b2e",
+      "documents": 64,
+      "manifest": "data/locked/manifest.jsonl",
+      "manifest_sha256": "f4d4e426e4b378c5648e1be7852286106cea5a02e43ae50dcc1f4ae8187e7794",
+      "required_tokens_per_document": 4161,
+      "split": "LOCKED"
+    },
+    "long": {
+      "document_ids_sha256": "15c84c7b4748f76bedb9a25c00a06880a8193597556731c733ccf79968386d59",
+      "documents": 16,
+      "manifest": "data/long/manifest.jsonl",
+      "manifest_sha256": "7fb43fd49b4e86e3f157560d9e7fb5538120d89e6c2614c2f1f417b714ed7208",
+      "required_tokens_per_document": 16449,
+      "split": "LONG"
+    },
+    "validation": {
+      "document_ids_sha256": "a21d43ffc362a9382a67ef2823be98f334d4509f1809c8d094537ce33d03aa93",
+      "documents": 32,
+      "manifest": "data/validation/manifest.jsonl",
+      "manifest_sha256": "0f536d6263f12cea92840f21ab0686b59d73260fcdebd1ee6e49a0f37e329da3",
+      "required_tokens_per_document": 1089,
+      "split": "VALIDATION"
+    }
+  },
+  "tokenizer_source_repository": "Qwen/Qwen3.5-4B-Base",
+  "tokenizer_source_revision": "1001bb4d826a52d1f399e183466143f4da7b741b",
+  "tokenizer_target_repository": "Qwen/Qwen3.5-9B-Base",
+  "tokenizer_target_revision": "68c46c4b3498877f3ef123c856ecfde50c39f404",
+  "verified_corpus_files": {
+    "C:\\Users\\Simon\\.cache\\huggingface\\hub\\datasets--HuggingFaceFW--fineweb-edu\\snapshots\\87f09149ef4734204d70ed1d046ddc9ca3f2b8f9\\sample\\100BT\\000_00000.parquet": "955ff462f3db09a52a4750e7a69901f89d64e48dfc936de0847c9f234f32b695",
+    "C:\\Users\\Simon\\.cache\\huggingface\\hub\\datasets--emozilla--pg19\\snapshots\\c021754c8e01c5b1cc83a1f549c1f97fbbb756b8\\data\\test-00000-of-00001-29a571947c0b5ccc.parquet": "9aae5ddf035760257458cff08d2575d78a15f84eff867af7a87eff0681b01bfc"
+  }
+}

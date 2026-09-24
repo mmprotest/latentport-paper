@@ -1,0 +1,21 @@
+{
+  "document_id": "<urn:uuid:268b989e-489f-4697-8166-7ae9e3208c15>",
+  "split_index": 23,
+  "state": {
+    "bytes": 186144035,
+    "path": "C:\\Users\\Simon\\OneDrive\\Documents\\Python Scripts\\LatentPort\\experiments\\latentport\\e002_coupler\\artifacts\\attempt_001\\factorial\\states\\translated\\translated_023.pt",
+    "state_checksum": "72662222586c92bd48e741c91d801901019e653be3b7f78117c6a1f6d4fba4a3",
+    "state_tensor_bytes": 186122240
+  },
+  "translation_timing": {
+    "bytes_device_to_host": 186122240,
+    "bytes_host_to_device": 186122240,
+    "gdn_convolution_translation_ms": 4.824800000733376,
+    "gdn_recurrent_translation_ms": 3.216100000372535,
+    "host_device_copy_ms": 88.03750000015498,
+    "kv_translation_ms": 24.241999999958352,
+    "translation_compute_ms": 32.28290000106426,
+    "translation_cpu_ms": 1859.375,
+    "translation_total_wall_ms": 121.07829999990827
+  }
+}

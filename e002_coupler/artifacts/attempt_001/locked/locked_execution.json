@@ -1,0 +1,31 @@
+{
+  "base_state": "TDD",
+  "completed_at_utc": "2026-09-01T08:13:58.381747+00:00",
+  "conditions": [
+    "NATIVE_9B",
+    "SOURCE_4B",
+    "EMPTY_9B",
+    "DDD",
+    "DDT",
+    "DTD",
+    "DTT",
+    "TDD",
+    "TDT",
+    "TTD",
+    "TTT",
+    "BASE_STATE",
+    "JOINT_CORRECTED",
+    "JOINT_SHUFFLED"
+  ],
+  "correction_hash": "e93a15a21b6eba37ec794d94c45780059a3653f9466c26db1b20960419260db3",
+  "correction_pass_sha256": "1cbfc4a2fbdd0a8bd8abd5473337ea401a0f897c7d087ae2f868c88d56eff1ac",
+  "documents": 64,
+  "frozen_manifest_sha256": "4ea9e85a2450a6c0f8dbb979f6ecfba32d4f45606103a946a32595208359070c",
+  "locked_execution_ordinal": 1,
+  "raw_evidence_sha256": "a189c454a4f52a8ceb03ec09e0e109efa139ce01225a472c59a70148acd0c629",
+  "source_pass_sha256": "0dab090d9484aefc5c764221ce6b5ed778de9e1b3feff6df5f0f177b76a4792e",
+  "started_at_utc": "2026-09-01T07:58:58.125934+00:00",
+  "status": "LOCKED_COMPLETE",
+  "translation_pass_sha256": "54bc905166f3785e69dd8c1bbf2a0f9bdc02ab0dd5170d2c441e963f4b16dbf3",
+  "wall_seconds": 899.4153292000001
+}
